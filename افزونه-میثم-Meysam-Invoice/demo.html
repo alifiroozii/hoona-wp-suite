@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش زنده افزونه فاکتور و برچسب پستی میثم | Meysam Invoice</title>
+    <link rel="stylesheet" href="meysam-invoice/assets/css/invoice-print.css">
+    <style>
+        .demo-nav-bar {
+            background: #1e293b;
+            color: #fff;
+            padding: 14px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            border-radius: 12px;
+        }
+        .demo-nav-bar h2 { margin: 0; font-size: 17px; font-weight: 800; }
+        .type-switcher { display: flex; gap: 8px; }
+        .type-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        .type-btn.active { background: #0f766e; border-color: #14b8a6; }
+    </style>
+</head>
+<body class="meysam-print-body">
+
+    <div class="demo-nav-bar no-print">
+        <div>
+            <h2>🧾 پیش‌نمایش قالب‌های فاکتور و برچسب پستی میثم</h2>
+            <span style="font-size: 12px; color: #94a3b8;">توسعه‌دهنده: علی فیروزی | شرکت هونا (<a href="admin-demo.html" style="color: #2dd4bf; text-decoration: none;">مشاهده پیشخوان تنظیمات</a>)</span>
+        </div>
+        <div class="type-switcher">
+            <button type="button" class="type-btn active" onclick="switchView('modern', this)">🧾 فاکتور مدرن دیجی‌کالایی</button>
+            <button type="button" class="type-btn" onclick="switchView('tax', this)">🏛️ فاکتور رسمی دارایی</button>
+            <button type="button" class="type-btn" onclick="switchView('label', this)">📦 برچسب پستی تیپاکس</button>
+            <button type="button" class="type-btn" onclick="switchView('thermal', this)">🖨️ فیش حرارتی ۸ سانتی</button>
+            <button type="button" class="type-btn" style="background:#10b981;" onclick="window.print()">🖨️ چاپ زنده</button>
+        </div>
+    </div>
+
+    <!-- ۱. فاکتور مدرن -->
+    <div id="view-modern" class="meysam-invoice-sheet a4">
+        <header class="inv-header">
+            <div class="store-info">
+                <h2>فروشگاه اینترنتی هونا استور</h2>
+                <p>صورت‌حساب فروش کالا و خدمات الکترونیکی</p>
+            </div>
+            <div class="order-meta-box">
+                <div>شماره فاکتور: <strong>#HOONA-9842</strong></div>
+                <div>تاریخ ثبت سفارش: <strong>۱۴۰۵/۰۸/۱۶</strong></div>
+                <div>روش پرداخت: <strong>پرداخت آنلاین (تایید شده)</strong></div>
+            </div>
+        </header>
+
+        <div class="parties-grid">
+            <div class="party-box">
+                <h4>مشخصات فروشنده</h4>
+                <p><strong>فروشگاه:</strong> شرکت هوشمندسازی و وب هونا</p>
+                <p><strong>شناسه ملی:</strong> ۱۰۱۰۳۹۲۸۱۷۲ | <strong>کد اقتصادی:</strong> ۴۱۱۸۹۲۷۱</p>
+                <p><strong>تلفن:</strong> ۰۲۱-۸۸۸۸۹۹۹۹ | <strong>پشتیبانی:</strong> تهران، ونک</p>
+            </div>
+            <div class="party-box">
+                <h4>مشخصات خریدار</h4>
+                <p><strong>نام خریدار:</strong> محمدصادق احمدی</p>
+                <p><strong>شماره همراه:</strong> ۰۹۱۲۳۴۵۶۷۸۹</p>
+                <p><strong>نشانی تحویل:</strong> اصفهان، خیابان نظر شرقی، کوچه پامچال، پلاک ۲۴</p>
+            </div>
+        </div>
+
+        <table class="items-table">
+            <thead>
+                <tr>
+                    <th>ردیف</th>
+                    <th>نام محصول و شرح خدمات</th>
+                    <th>تعداد</th>
+                    <th>قیمت واحد (تومان)</th>
+                    <th>مبلغ کل (تومان)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>۱</td>
+                    <td>هدفون بی‌سیم نویز کنسلینگ سونی WH-1000XM5</td>
+                    <td>۱</td>
+                    <td>۱۴,۸۰۰,۰۰۰</td>
+                    <td>۱۴,۸۰۰,۰۰۰</td>
+                </tr>
+                <tr>
+                    <td>۲</td>
+                    <td>پایه نگهدارنده آلومینیومی ارگونومیک</td>
+                    <td>۲</td>
+                    <td>۶۵۰,۰۰۰</td>
+                    <td>۱,۳۰۰,۰۰۰</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="4" class="text-left">جمع کل اقلام:</td>
+                    <td>۱۶,۱۰۰,۰۰۰ تومان</td>
+                </tr>
+                <tr>
+                    <td colspan="4" class="text-left">هزینه بسته‌بندی و ارسال پیشتاز:</td>
+                    <td>رایگان (تخفیف شگفت‌انگیز)</td>
+                </tr>
+                <tr class="total-row">
+                    <td colspan="4" class="text-left"><strong>مبلغ نهایی پرداخت شده:</strong></td>
+                    <td><strong>۱۶,۱۰۰,۰۰۰ تومان</strong></td>
+                </tr>
+            </tfoot>
+        </table>
+
+        <footer class="inv-footer">
+            <div class="signatures">
+                <div>مهر و امضای شرکت هونا (فروشنده)</div>
+                <div>امضای خریدار / مامور تحویل</div>
+            </div>
+            <div class="inv-credit">تولید شده توسط افزونه فاکتور حرفه‌ای میثم | شرکت هونا (hoonaco.ir)</div>
+        </footer>
+    </div>
+
+    <!-- ۲. فاکتور رسمی دارایی -->
+    <div id="view-tax" class="meysam-invoice-sheet a4" style="display:none; border: 2px solid #000;">
+        <div style="text-align:center; border-bottom: 2px solid #000; padding-bottom: 12px; margin-bottom: 18px;">
+            <h2 style="margin:0; font-size:20px;">صورت‌حساب رسمی فروش کالا و خدمات</h2>
+            <span style="font-size:12px;">(مطابق با ماده ۱۹ قانون مالیات بر ارزش افزوده و فرمت استاندارد سازمان امور مالیاتی کشور)</span>
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; margin-bottom: 12px; font-size:13px;">
+            <strong>مشخصات فروشنده:</strong> شرکت هوشمندسازی و وب هونا • شماره ثبت: ۵۴۲۱۰ • کد اقتصادی: ۴۱۱۸۹۲۷۱
+        </div>
+        <div style="border: 1px solid #000; padding: 10px; margin-bottom: 14px; font-size:13px;">
+            <strong>مشخصات خریدار:</strong> شرکت توسعه نرم‌افزار نوین • شناسه ملی: ۱۰۱۰۷۷۸۸۹۹ • استان: اصفهان
+        </div>
+        <table class="items-table" style="border: 2px solid #000;">
+            <thead>
+                <tr style="background:#e2e8f0;">
+                    <th>ردیف</th>
+                    <th>شرح کالا / خدمات</th>
+                    <th>تعداد</th>
+                    <th>مبلغ (تومان)</th>
+                    <th>مالیات ۹٪ ارزش افزوده</th>
+                    <th>مبلغ کل</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>۱</td>
+                    <td>لایسنس سالانه سرور اختصاصی و پشتیبانی هوشمند</td>
+                    <td>۱</td>
+                    <td>۲۰,۰۰۰,۰۰۰</td>
+                    <td>۱,۸۰۰,۰۰۰</td>
+                    <td>۲۱,۸۰۰,۰۰۰</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr style="font-weight:bold; background:#f8fafc;">
+                    <td colspan="5" class="text-left">مبلغ کل قابل پرداخت با احتساب مالیات:</td>
+                    <td>۲۱,۸۰۰,۰۰۰ تومان</td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <!-- ۳. برچسب پستی -->
+    <div id="view-label" class="meysam-label-sheet a5" style="display:none;">
+        <div class="label-header">
+            <span>📦 برچسب استاندارد پستی و تیپاکس</span>
+            <span>بارکد رهگیری: <strong>9827104928172</strong></span>
+        </div>
+        <div class="label-section">
+            <strong>فرستنده:</strong>
+            <p>تهران، میدان ونک، خیابان ملاصدرا - شرکت هونا - تلفن: ۰۲۱-۸۸۸۸۹۹۹۹</p>
+            <p>کد پستی فرستنده: ۱۹۹۸۸۷۷۶۶۵</p>
+        </div>
+        <div class="label-section">
+            <strong>گیرنده محترم:</strong>
+            <h3 style="margin: 6px 0;">جناب آقای محمدصادق احمدی</h3>
+            <p><strong>تلفن همراه:</strong> ۰۹۱۲۳۴۵۶۷۸۹</p>
+            <p><strong>آدرس مقصد:</strong> اصفهان، خیابان نظر شرقی، کوچه پامچال، پلاک ۲۴، واحد ۲</p>
+            <p><strong>کدپستی ۱۰ رقمی:</strong> <span class="postcode-badge">۸۱۶۴۸۹۲۷۴۱</span></p>
+        </div>
+    </div>
+
+    <!-- ۴. فیش حرارتی -->
+    <div id="view-thermal" class="meysam-thermal-sheet" style="display:none;">
+        <div class="receipt-header">
+            <h3>فروشگاه هونا استور</h3>
+            <p>فیش سفارش #9842 (۸ سانتی‌متری)</p>
+            <hr>
+        </div>
+        <div class="receipt-body">
+            <p>مشتری: محمدصادق احمدی</p>
+            <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
+            <hr>
+            <table style="width:100%; font-size:12px;">
+                <tr>
+                    <td>هدفون سونی (×۱)</td>
+                    <td style="text-align:left;">۱۴,۸۰۰,۰۰۰</td>
+                </tr>
+                <tr>
+                    <td>پایه نگهدارنده (×۲)</td>
+                    <td style="text-align:left;">۱,۳۰۰,۰۰۰</td>
+                </tr>
+            </table>
+            <hr>
+            <p style="font-size:14px;"><strong>جمع نهایی: ۱۶,۱۰۰,۰۰۰ تومان</strong></p>
+            <p style="text-align:center; font-size:11px; margin-top:14px;">با تشکر از اعتماد شما به هونا استور</p>
+        </div>
+    </div>
+
+    <script>
+    function switchView(type, btn) {
+        document.querySelectorAll('.type-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        document.getElementById('view-modern').style.display = 'none';
+        document.getElementById('view-tax').style.display = 'none';
+        document.getElementById('view-label').style.display = 'none';
+        document.getElementById('view-thermal').style.display = 'none';
+
+        document.getElementById('view-' + type).style.display = 'block';
+    }
+    </script>
+</body>
+</html>

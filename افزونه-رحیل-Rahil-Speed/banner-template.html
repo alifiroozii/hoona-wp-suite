@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
+        body {
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: radial-gradient(circle at 85% 20%, #7f1d1d 0%, #1e1b4b 50%, #0f172a 100%);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 70px;
+            position: relative;
+        }
+        /* Glow background elements */
+        .glow-1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(239, 68, 68, 0.3) 0%, transparent 70%);
+            top: -100px;
+            right: 100px;
+            pointer-events: none;
+        }
+        .glow-2 {
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
+            bottom: -80px;
+            left: 200px;
+            pointer-events: none;
+        }
+
+        .content-left {
+            max-width: 620px;
+            z-index: 10;
+        }
+        .badge-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        .badge-fire {
+            background: rgba(239, 68, 68, 0.25);
+            border: 1px solid rgba(239, 68, 68, 0.6);
+            color: #fca5a5;
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-size: 14px;
+            font-weight: 800;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge-free {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: #6ee7b7;
+            padding: 6px 14px;
+            border-radius: 99px;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.25;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #ffffff 0%, #fca5a5 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.desc {
+            font-size: 19px;
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+
+        .features-row {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 35px;
+        }
+        .pill {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .pill i { color: #ef4444; }
+
+        .brand-footer {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            padding-top: 20px;
+        }
+        .brand-logo {
+            font-size: 18px;
+            font-weight: 900;
+            color: #fff;
+        }
+        .brand-logo span { color: #ef4444; }
+        .brand-author {
+            font-size: 14px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        /* Right Graphic Card Stack */
+        .graphic-right {
+            position: relative;
+            width: 420px;
+            height: 480px;
+            z-index: 10;
+        }
+        .speed-score-card {
+            position: absolute;
+            top: 20px;
+            right: 0;
+            width: 380px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(16px);
+            color: #0f172a;
+            border-radius: 24px;
+            padding: 28px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-align: center;
+        }
+        .score-gauge {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: conic-gradient(#10b981 0% 99%, #e2e8f0 99% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+        .score-inner {
+            width: 116px;
+            height: 116px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .score-num {
+            font-size: 52px;
+            font-weight: 900;
+            color: #10b981;
+            line-height: 1;
+        }
+        .score-title {
+            font-size: 18px;
+            font-weight: 900;
+            color: #065f46;
+            margin-bottom: 4px;
+        }
+        .score-sub {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        /* Floating Mini Badges */
+        .float-pill-1 {
+            position: absolute;
+            bottom: 30px;
+            left: -30px;
+            background: #1e293b;
+            color: #fff;
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            padding: 14px 20px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+            animation: float 4s ease-in-out infinite;
+        }
+        .float-pill-2 {
+            position: absolute;
+            top: -15px;
+            left: -20px;
+            background: #0f172a;
+            color: #fff;
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            padding: 12px 18px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <div class="content-left">
+        <div class="badge-bar">
+            <div class="badge-fire"><i class="fas fa-bolt"></i> شتاب‌دهنده و کش فوق‌سریع وردپرس</div>
+            <div class="badge-free">۱۰۰٪ رایگان و متن‌باز GPLv2</div>
+        </div>
+
+        <h1>افزونه شتاب‌دهنده رحیل<br>(Rahil Speed Pro)</h1>
+        
+        <p class="desc">
+            جایگزین حرفه‌ای WP Rocket و Perfmatters با کش استاتیک دیسک، تبدیل خودکار تصاویر به WebP و پیش‌بارگذاری هوشمند فونت‌های فارسی
+        </p>
+
+        <div class="features-row">
+            <div class="pill"><i class="fas fa-microchip"></i> کش HTML بدون دیتابیس</div>
+            <div class="pill"><i class="fas fa-images"></i> وب‌پی خودکار (۸۹٪ فشرده)</div>
+            <div class="pill"><i class="fas fa-font"></i> پرلود فونت وزیر و ایران‌یکان</div>
+        </div>
+
+        <div class="brand-footer">
+            <div class="brand-logo">شرکت هوشمندسازی و وب <span>هونا</span> (hoonaco.ir)</div>
+            <div class="brand-author">&bull; توسعه‌دهنده: مهندس علی فیروزی</div>
+        </div>
+    </div>
+
+    <div class="graphic-right">
+        <!-- Floating Pill 2 -->
+        <div class="float-pill-2">
+            <i class="fas fa-server" style="color: #34d399; font-size: 20px;"></i>
+            <div>
+                <div style="font-size: 11px; color: #94a3b8;">پاسخ سرور (TTFB)</div>
+                <div style="font-size: 15px; font-weight: 800; color: #34d399;">۴۲ میلی‌ثانیه</div>
+            </div>
+        </div>
+
+        <!-- Google Score Card -->
+        <div class="speed-score-card">
+            <div class="score-gauge">
+                <div class="score-inner">
+                    <div class="score-num">99</div>
+                </div>
+            </div>
+            <div class="score-title">امتیاز گوگل پیج‌اسپید</div>
+            <div class="score-sub">قبول در Core Web Vitals موبایل ۲۰۲۶</div>
+        </div>
+
+        <!-- Floating Pill 1 -->
+        <div class="float-pill-1">
+            <i class="fas fa-rocket" style="color: #ef4444; font-size: 24px;"></i>
+            <div>
+                <div style="font-size: 12px; color: #94a3b8;">کاهش زمان بارگذاری کل</div>
+                <div style="font-size: 16px; font-weight: 800; color: #f87171;">از ۴.۲ ثانیه به ۰.۶ ثانیه</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

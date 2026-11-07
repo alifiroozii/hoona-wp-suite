@@ -1,0 +1,325 @@
+/**
+ * استایل‌های اصلی پوسته امین (Amin Real Estate & Directory Theme)
+ */
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Medium.woff2') format('woff2');
+    font-weight: 500;
+}
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+:root {
+    --primary: #ea580c;
+    --primary-dark: #c2410c;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --bg-light: #f8fafc;
+    --border: #e2e8f0;
+}
+
+* { box-sizing: border-box; }
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--text-main);
+    background: #ffffff;
+    direction: rtl;
+}
+
+/* نوبار */
+.amin-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}
+.amin-nav-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.amin-logo-wrap { display: flex; align-items: center; gap: 14px; }
+.amin-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--text-main);
+}
+.amin-brand-icon { font-size: 26px; }
+.amin-brand-title { font-size: 18px; font-weight: 800; }
+.amin-city-badge {
+    background: #f1f5f9;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+.amin-nav-links { display: flex; gap: 20px; }
+.amin-nav-links a { text-decoration: none; color: var(--text-muted); font-size: 13.5px; font-weight: 600; }
+.amin-nav-links a:hover { color: var(--primary); }
+
+.amin-btn-add-listing {
+    background: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 13.5px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+    transition: transform 0.2s;
+}
+.amin-btn-add-listing:hover { transform: translateY(-1px); }
+
+/* هیرو و سرچ‌باکس */
+.amin-hero-search {
+    background: linear-gradient(135deg, #18181b 0%, #27272a 100%);
+    color: #fff;
+    padding: 70px 24px 90px;
+    text-align: center;
+    position: relative;
+}
+.amin-hero-container { max-width: 980px; margin: 0 auto; }
+.amin-hero-container h1 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); font-weight: 900; margin: 0 0 12px; }
+.amin-hero-container p { font-size: 15px; color: #a1a1aa; margin: 0 0 34px; }
+
+.search-filter-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    color: var(--text-main);
+    text-align: right;
+}
+.search-tabs { display: flex; gap: 8px; margin-bottom: 18px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+.s-tab {
+    background: none;
+    border: none;
+    padding: 8px 18px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 8px;
+}
+.s-tab.active { background: #ffedd5; color: var(--primary); }
+
+.search-fields-grid {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1.5fr 1.5fr;
+    gap: 16px;
+    align-items: center;
+}
+.field-item label { display: block; font-size: 12px; font-weight: 700; color: var(--text-muted); margin-bottom: 6px; }
+.field-item select, .field-item input {
+    width: 100%;
+    height: 44px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0 12px;
+    font-size: 13.5px;
+    font-family: inherit;
+    background: #f8fafc;
+}
+.btn-do-search {
+    width: 100%;
+    height: 44px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.2s;
+}
+.btn-do-search:hover { background: var(--primary-dark); }
+
+/* لیست آگهی‌ها */
+.amin-listings-section {
+    max-width: 1240px;
+    margin: -40px auto 70px;
+    padding: 0 24px;
+    position: relative;
+    z-index: 10;
+}
+.amin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+.amin-section-header h2 { font-size: 24px; font-weight: 900; margin: 0 0 6px; }
+.amin-section-header p { font-size: 13.5px; color: var(--text-muted); margin: 0; }
+.view-switch span { background: #ffedd5; color: var(--primary); padding: 6px 14px; border-radius: 999px; font-size: 13px; font-weight: 700; }
+
+.amin-listings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+}
+.listing-card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+.listing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.08);
+}
+.card-thumb {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+}
+.thumb-bg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 54px;
+}
+.tag-urgent {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #ef4444;
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 800;
+}
+.location-tag {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(4px);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11.5px;
+    font-weight: 600;
+}
+.card-content {
+    padding: 18px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.card-content h3 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.45;
+}
+.listing-specs {
+    display: flex;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    margin-top: auto;
+}
+.price-box small { display: block; font-size: 10.5px; color: var(--text-muted); }
+.price-box strong { font-size: 14.5px; color: #047857; font-weight: 900; }
+.btn-contact {
+    background: #f1f5f9;
+    border: none;
+    color: var(--text-main);
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+.btn-contact:hover { background: #e2e8f0; }
+
+/* مدال */
+.amin-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(6px);
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.amin-modal-card {
+    background: #ffffff;
+    border-radius: 18px;
+    max-width: 500px;
+    width: 100%;
+    padding: 28px;
+    position: relative;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3);
+}
+.modal-close-btn {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: #f1f5f9; border: none; font-size: 22px;
+    width: 32px; height: 32px; border-radius: 50%;
+    cursor: pointer;
+}
+.amin-modal-card h3 { margin: 0 0 6px; font-size: 18px; font-weight: 800; }
+.amin-modal-card p { font-size: 13px; color: var(--text-muted); margin: 0 0 20px; }
+.m-field { margin-bottom: 14px; }
+.m-field label { display: block; font-size: 12.5px; font-weight: 700; margin-bottom: 6px; }
+.m-field input { width: 100%; height: 42px; border: 1px solid var(--border); border-radius: 8px; padding: 0 12px; font-size: 13.5px; font-family: inherit; }
+.m-field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* فوتر */
+.amin-footer {
+    background: #f8fafc;
+    border-top: 1px solid var(--border);
+    padding: 50px 24px 20px;
+}
+.amin-footer-container { max-width: 1240px; margin: 0 auto; }
+.amin-footer-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; margin-bottom: 30px; }
+.amin-footer-bottom { text-align: center; font-size: 12.5px; color: var(--text-muted); padding-top: 20px; border-top: 1px solid var(--border); }
+.amin-footer-bottom a { color: var(--primary); text-decoration: none; font-weight: 700; }
+
+@media (max-width: 850px) {
+    .search-fields-grid { grid-template-columns: 1fr; }
+    .amin-nav-links { display: none; }
+}

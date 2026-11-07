@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش آنلاین پوسته آگهی و املاک امین | Amin Theme</title>
+    <link rel="stylesheet" href="amin/assets/css/main.css">
+</head>
+<body>
+
+<header class="amin-navbar">
+    <div class="amin-nav-container">
+        <div class="amin-logo-wrap">
+            <a href="#" class="amin-brand">
+                <span class="amin-brand-icon">🏢</span>
+                <span class="amin-brand-title">سامانه هوشمند املاک و آگهی امین</span>
+            </a>
+            <span class="amin-city-badge">📍 سراسر کشور</span>
+        </div>
+        <nav class="amin-nav-links">
+            <a href="#listings">آگهی‌های منتخب</a>
+            <a href="admin-demo.html" target="_blank" style="color:#ea580c; font-weight:800;">⚡ پیشخوان تنظیمات امین</a>
+        </nav>
+        <div class="amin-nav-actions">
+            <button type="button" class="amin-btn-add-listing" onclick="document.getElementById('listing-modal').style.display='flex'">
+                <span>➕ ثبت رایگان آگهی</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<main class="amin-main">
+    <section class="amin-hero-search">
+        <div class="amin-hero-container">
+            <h1>جستجو و ثبت رایگان آگهی ملک و املاک در سراسر ایران</h1>
+            <p>خرید، فروش، رهن و اجاره آپارتمان، ویلا و زمین به صورت مستقیم از مالک بدون واسطه</p>
+
+            <div class="search-filter-card">
+                <div class="search-tabs">
+                    <button type="button" class="s-tab active">خرید و فروش</button>
+                    <button type="button" class="s-tab">رهن و اجاره</button>
+                </div>
+                <div class="search-fields-grid">
+                    <div class="field-item">
+                        <label>شهر و منطقه</label>
+                        <select id="filter-city">
+                            <option value="all">همه شهرها</option>
+                            <option value="tehran" selected>تهران</option>
+                            <option value="shomal">شمال (مازندران و گیلان)</option>
+                            <option value="shiraz">شیراز</option>
+                        </select>
+                    </div>
+                    <div class="field-item">
+                        <label>نوع ملک</label>
+                        <select id="filter-type">
+                            <option value="all">همه انواع ملک</option>
+                            <option value="apartment">آپارتمان مسکونی</option>
+                            <option value="villa">ویلا و باغ</option>
+                            <option value="office">واحد تجاری و اداری</option>
+                        </select>
+                    </div>
+                    <div class="field-item">
+                        <label>حداقل متراژ</label>
+                        <select>
+                            <option>بدون محدودیت</option>
+                            <option>حداقل ۸۰ متر</option>
+                            <option>حداقل ۱۲۰ متر</option>
+                        </select>
+                    </div>
+                    <div class="field-item">
+                        <label>&nbsp;</label>
+                        <button type="button" id="btn-search-listings" class="btn-do-search" onclick="alert('🔍 جستجوی هوشمند فیلترها اعمال شد!')">
+                            <span>🔍 جستجوی هوشمند</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="listings" class="amin-listings-section">
+        <div class="amin-section-header">
+            <div>
+                <h2>فایل‌های ویژه و آگهی‌های امروز</h2>
+                <p>املاک مسکونی و تجاری کارشناسی شده با قیمت مناسب</p>
+            </div>
+            <div class="view-switch">
+                <span>🏢 همه آگهی‌ها (<strong id="total-count">۳</strong>)</span>
+            </div>
+        </div>
+
+        <div class="amin-listings-grid" id="listings-container">
+            <article class="listing-card">
+                <div class="card-thumb">
+                    <span class="tag-urgent">فوری</span>
+                    <div class="thumb-bg" style="background: linear-gradient(135deg, #1e293b, #334155);">🏙️</div>
+                    <span class="location-tag">تهران، سعادت‌آباد</span>
+                </div>
+                <div class="card-content">
+                    <h3>آپارتمان ۱۳۵ متری ۳ خوابه نوساز کلیدنخورده</h3>
+                    <div class="listing-specs">
+                        <span>📐 ۱۳۵ متر</span>
+                        <span>🛏️ ۳ خواب</span>
+                        <span>🚗 پارکینگ</span>
+                        <span>🛗 آسانسور</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <small>قیمت کل:</small>
+                            <strong>۱۱,۵۰۰,۰۰۰,۰۰۰ تومان</strong>
+                        </div>
+                        <button type="button" class="btn-contact" onclick="alert('📞 تماس با مالک: 09121234567')">📞 اطلاعات تماس</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="listing-card">
+                <div class="card-thumb">
+                    <span class="tag-urgent" style="background:#10b981;">سند تک‌برگ</span>
+                    <div class="thumb-bg" style="background: linear-gradient(135deg, #064e3b, #047857);">🏡</div>
+                    <span class="location-tag">مازندران، متل‌قو</span>
+                </div>
+                <div class="card-content">
+                    <h3>ویلای مدرن استخردار ۴۰۰ متری تریپلکس</h3>
+                    <div class="listing-specs">
+                        <span>📐 ۴۰۰ متر زمین</span>
+                        <span>🛏️ ۴ خواب مستر</span>
+                        <span>🏊 استخر چهارفصل</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <small>قیمت کل:</small>
+                            <strong>۱۸,۰۰۰,۰۰۰,۰۰۰ تومان</strong>
+                        </div>
+                        <button type="button" class="btn-contact" onclick="alert('📞 تماس با مشاور: 09112223344')">📞 اطلاعات تماس</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="listing-card">
+                <div class="card-thumb">
+                    <div class="thumb-bg" style="background: linear-gradient(135deg, #172554, #1d4ed8);">🏢</div>
+                    <span class="location-tag">شیراز، قصرالدشت</span>
+                </div>
+                <div class="card-content">
+                    <h3>واحد اداری و مطب ۷۵ متری بر اصلی</h3>
+                    <div class="listing-specs">
+                        <span>📐 ۷۵ متر</span>
+                        <span>🛗 آسانسور</span>
+                        <span>📍 بر اصلی</span>
+                    </div>
+                    <div class="card-footer">
+                        <div class="price-box">
+                            <small>قیمت کل:</small>
+                            <strong>۵,۲۰۰,۰۰۰,۰۰۰ تومان</strong>
+                        </div>
+                        <button type="button" class="btn-contact" onclick="alert('📞 تماس با مالک: 071-36280000')">📞 اطلاعات تماس</button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- مدال ثبت آگهی -->
+    <div id="listing-modal" class="amin-modal-overlay" style="display:none;">
+        <div class="amin-modal-card">
+            <button type="button" class="modal-close-btn" onclick="document.getElementById('listing-modal').style.display='none'">&times;</button>
+            <h3>➕ ثبت رایگان آگهی ملک</h3>
+            <p>اطلاعات ملک خود را وارد کنید تا به صورت فوری در سایت منتشر شود.</p>
+
+            <form onsubmit="return false;">
+                <div class="m-field">
+                    <label>عنوان آگهی</label>
+                    <input type="text" id="m-title" placeholder="مثلاً: آپارتمان ۱۱۰ متری در نیاوران" required>
+                </div>
+                <div class="m-field-row">
+                    <div class="m-field">
+                        <label>شهر و محله</label>
+                        <input type="text" id="m-loc" placeholder="تهران، نیاوران" required>
+                    </div>
+                    <div class="m-field">
+                        <label>متراژ (متر)</label>
+                        <input type="number" id="m-area" placeholder="110" required>
+                    </div>
+                </div>
+                <div class="m-field-row">
+                    <div class="m-field">
+                        <label>قیمت کل (تومان)</label>
+                        <input type="text" id="m-price" placeholder="۸,۹۰۰,۰۰۰,۰۰۰" required>
+                    </div>
+                    <div class="m-field">
+                        <label>شماره تماس شما</label>
+                        <input type="tel" id="m-tel" placeholder="09121234567" dir="ltr" required>
+                    </div>
+                </div>
+                <button type="button" class="btn-do-search" style="width:100%; margin-top:16px;" onclick="addListingDemo()">
+                    🚀 انتشار فوری آگهی در سامانه
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer class="amin-footer">
+    <div class="amin-footer-container">
+        <div class="amin-footer-bottom">
+            <p>طراحی و توسعه: <a href="https://hoonaco.ir" target="_blank">علی فیروزی (شرکت هونا)</a> | <a href="admin-demo.html">مشاهده پنل تنظیمات پیشخوان وردپرس</a></p>
+        </div>
+    </div>
+</footer>
+
+<script>
+function addListingDemo() {
+    const title = document.getElementById('m-title').value.trim();
+    const loc = document.getElementById('m-loc').value.trim();
+    const area = document.getElementById('m-area').value.trim();
+    const price = document.getElementById('m-price').value.trim();
+    const tel = document.getElementById('m-tel').value.trim();
+
+    if (!title || !price || !tel) {
+        alert('لطفاً عنوان، قیمت و شماره تماس را وارد کنید.');
+        return;
+    }
+
+    const card = document.createElement('article');
+    card.className = 'listing-card';
+    card.style.border = '2px solid #ea580c';
+    card.innerHTML = `
+        <div class="card-thumb">
+            <span class="tag-urgent" style="background:#ea580c;">آگهی جدید شما</span>
+            <div class="thumb-bg" style="background: linear-gradient(135deg, #ea580c, #c2410c);">✨</div>
+            <span class="location-tag">${loc || 'تهران'}</span>
+        </div>
+        <div class="card-content">
+            <h3>${title}</h3>
+            <div class="listing-specs">
+                <span>📐 ${area || '100'} متر</span>
+                <span>🛏️ ۲ خواب</span>
+                <span>🚗 پارکینگ</span>
+            </div>
+            <div class="card-footer">
+                <div class="price-box">
+                    <small>قیمت اعلامی:</small>
+                    <strong>${price} تومان</strong>
+                </div>
+                <button type="button" class="btn-contact" onclick="alert('📞 تماس با شما: ${tel}')">📞 اطلاعات تماس</button>
+            </div>
+        </div>
+    `;
+
+    document.getElementById('listings-container').prepend(card);
+    document.getElementById('listing-modal').style.display = 'none';
+    alert('🎉 تبریک! آگهی شما با موفقیت و به صورت رایگان ثبت گردید.');
+}
+</script>
+</body>
+</html>

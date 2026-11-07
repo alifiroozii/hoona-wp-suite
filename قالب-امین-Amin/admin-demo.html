@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیشخوان تنظیمات پوسته املاک و آگهی امین | Amin Theme Options</title>
+    <link rel="stylesheet" href="amin/assets/css/main.css">
+    <style>
+        body { background: #f0f0f1; display: flex; min-height: 100vh; }
+        .wp-admin-bar {
+            position: fixed; top: 0; left: 0; right: 0; height: 32px;
+            background: #1d2327; color: #c3c4c7; display: flex;
+            align-items: center; justify-content: space-between; padding: 0 15px; font-size: 13px; z-index: 9999;
+        }
+        .wp-admin-bar a { color: #c3c4c7; text-decoration: none; }
+        .wp-sidebar { width: 170px; background: #1d2327; padding-top: 32px; flex-shrink: 0; min-height: 100vh; }
+        .wp-menu { list-style: none; margin: 0; padding: 10px 0; }
+        .wp-menu li a { display: block; padding: 8px 14px; color: #c3c4c7; text-decoration: none; font-size: 13px; }
+        .wp-menu li.active a { background: #ea580c; color: #fff; font-weight: 600; }
+        .wp-content { flex: 1; padding: 50px 30px 40px; max-width: 1100px; }
+        .form-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .form-table th { width: 230px; text-align: right; padding: 16px 10px 16px 0; font-size: 13.5px; font-weight: 600; color: #1e293b; vertical-align: top; }
+        .form-table td { padding: 12px 10px; font-size: 13.5px; }
+        input[type="text"], input[type="number"], select {
+            width: 100%; max-width: 480px; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13.5px; font-family: inherit;
+        }
+        .btn-save { background: #ea580c; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: 20px; font-family: inherit; }
+        .btn-save:hover { background: #c2410c; }
+        .save-notice { display: none; background: #ecfdf5; border-right: 4px solid #10b981; color: #065f46; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="wp-admin-bar">
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <a href="#"><span>WordPress</span></a>
+        <a href="preview.html" target="_blank"><span>🌐 مشاهده سامانه آگهی امین</span></a>
+    </div>
+    <div><span>سلام، مدیر سامانه امین (علی فیروزی)</span></div>
+</div>
+
+<aside class="wp-sidebar">
+    <ul class="wp-menu">
+        <li><a href="#">پیشخوان</a></li>
+        <li><a href="#">🏢 آگهی‌ها و املاک</a></li>
+        <li class="active"><a href="#">⚡ تنظیمات امین</a></li>
+        <li><a href="#">پوسته‌ها</a></li>
+        <li><a href="#">افزونه‌ها</a></li>
+    </ul>
+</aside>
+
+<main class="wp-content">
+    <div class="amin-header" style="background: linear-gradient(135deg, #c2410c 0%, #ea580c 100%); color:#fff; padding:24px 30px; border-radius:14px; margin-bottom:25px;">
+        <span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600;">پوسته رسمی نیازمندی‌ها و املاک امین v1.0.0</span>
+        <h1 style="color:#fff; margin:8px 0; font-size:22px; font-weight:800;">🏢 تنظیمات پیشرفته سامانه آگهی و املاک امین (Amin)</h1>
+        <p style="margin:0; color:#ffedd5; font-size:13px;">توسعه‌یافته توسط: <strong>مهندس علی فیروزی</strong> | شرکت هونا (<a href="https://hoonaco.ir" target="_blank" style="color:#fff;">hoonaco.ir</a>)</p>
+    </div>
+
+    <div id="save-alert" class="save-notice">✅ تغییرات تنظیمات پوسته امین با موفقیت ذخیره شد!</div>
+
+    <div style="background:#fff; border-radius:12px; border:1px solid #e2e8f0; overflow:hidden;">
+        <nav style="display:flex; background:#f8fafc; border-bottom:1px solid #e2e8f0; padding:0 15px;">
+            <a href="javascript:void(0)" class="tab-btn active" data-tab="tab-general" style="padding:14px 18px; text-decoration:none; color:#ea580c; font-weight:700; border-bottom:3px solid #ea580c;">⚙️ عمومی و برند</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-search" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">🔍 فیلترهای جستجو</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-submit" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">📝 فرم ثبت آگهی</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-about" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">ℹ️ درباره هونا</a>
+        </nav>
+
+        <div id="tab-general" class="tab-pane" style="padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>عنوان سایت و سامانه</th>
+                    <td><input type="text" value="سامانه هوشمند املاک و آگهی امین"></td>
+                </tr>
+                <tr>
+                    <th>شهر پیش‌فرض</th>
+                    <td><input type="text" value="تهران"></td>
+                </tr>
+                <tr>
+                    <th>شماره تماس پشتیبانی</th>
+                    <td><input type="text" value="021-77889900" dir="ltr"></td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره عمومی</button>
+        </div>
+
+        <div id="tab-search" class="tab-pane" style="display:none; padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>فیلترهای فعال در باکس جستجو</th>
+                    <td>
+                        <label><input type="checkbox" checked> فیلتر نوع معامله (خرید/رهن و اجاره)</label><br>
+                        <label><input type="checkbox" checked> فیلتر شهر و منطقه</label><br>
+                        <label><input type="checkbox" checked> فیلتر متراژ و قیمت</label>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره فیلترها</button>
+        </div>
+
+        <div id="tab-submit" class="tab-pane" style="display:none; padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>تایید خودکار آگهی‌ها</th>
+                    <td><label><input type="checkbox" checked> انتشار آنی آگهی‌های کاربران بدون نیاز به تایید دستی مدیر</label></td>
+                </tr>
+                <tr>
+                    <th>حداکثر تعداد تصاویر مجاز</th>
+                    <td><input type="number" value="6" min="1" max="15"></td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره فرم ثبت</button>
+        </div>
+
+        <div id="tab-about" class="tab-pane" style="display:none; padding:25px 30px;">
+            <div style="background:#f1f5f9; padding:20px; border-radius:10px; line-height:1.8;">
+                <h3>شرکت هوشمندسازی و وب هونا</h3>
+                <p>پوسته امین برای نیازمندی‌ها، آژانس‌های املاک و پلتفرم‌های دایرکتوری با ساختاری سبک و مستقل طراحی شده است.</p>
+                <p>👨‍💻 <strong>توسعه‌دهنده:</strong> مهندس علی فیروزی | 🌐 <a href="https://hoonaco.ir" target="_blank">hoonaco.ir</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const panes = document.querySelectorAll('.tab-pane');
+tabs.forEach(t => {
+    t.addEventListener('click', () => {
+        tabs.forEach(item => { item.style.color = '#475569'; item.style.borderBottom = 'none'; item.classList.remove('active'); });
+        panes.forEach(p => p.style.display = 'none');
+        t.style.color = '#ea580c';
+        t.style.borderBottom = '3px solid #ea580c';
+        t.classList.add('active');
+        document.getElementById(t.dataset.tab).style.display = 'block';
+    });
+});
+function saveDemo() {
+    const alert = document.getElementById('save-alert');
+    alert.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { alert.style.display = 'none'; }, 2000);
+}
+</script>
+</body>
+</html>

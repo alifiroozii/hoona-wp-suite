@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیشخوان تنظیمات افزونه فاکتور میثم | Meysam Invoice Options</title>
+    <link rel="stylesheet" href="meysam-invoice/assets/css/invoice-print.css">
+    <style>
+        body { background: #f0f0f1; display: flex; min-height: 100vh; }
+        .wp-admin-bar {
+            position: fixed; top: 0; left: 0; right: 0; height: 32px;
+            background: #1d2327; color: #c3c4c7; display: flex;
+            align-items: center; justify-content: space-between; padding: 0 15px; font-size: 13px; z-index: 9999;
+        }
+        .wp-admin-bar a { color: #c3c4c7; text-decoration: none; }
+        .wp-sidebar { width: 170px; background: #1d2327; padding-top: 32px; flex-shrink: 0; min-height: 100vh; }
+        .wp-menu { list-style: none; margin: 0; padding: 10px 0; }
+        .wp-menu li a { display: block; padding: 8px 14px; color: #c3c4c7; text-decoration: none; font-size: 13px; }
+        .wp-menu li.active a { background: #0f766e; color: #fff; font-weight: 600; }
+        .wp-content { flex: 1; padding: 50px 30px 40px; max-width: 1100px; }
+        .form-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        .form-table th { width: 230px; text-align: right; padding: 16px 10px 16px 0; font-size: 13.5px; font-weight: 600; color: #1e293b; vertical-align: top; }
+        .form-table td { padding: 12px 10px; font-size: 13.5px; }
+        input[type="text"], input[type="number"], textarea, select {
+            width: 100%; max-width: 480px; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: 13.5px; font-family: inherit;
+        }
+        .btn-save { background: #0f766e; color: #fff; border: none; padding: 12px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; cursor: pointer; margin-top: 20px; font-family: inherit; }
+        .btn-save:hover { background: #115e59; }
+        .save-notice { display: none; background: #ecfdf5; border-right: 4px solid #10b981; color: #065f46; padding: 12px 18px; border-radius: 8px; margin-bottom: 20px; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+<div class="wp-admin-bar">
+    <div style="display: flex; gap: 20px; align-items: center;">
+        <a href="#"><span>WordPress</span></a>
+        <a href="demo.html" target="_blank"><span>🌐 مشاهده پیش‌نمایش چاپ فاکتورها</span></a>
+    </div>
+    <div><span>سلام، مدیر فروشگاه (علی فیروزی)</span></div>
+</div>
+
+<aside class="wp-sidebar">
+    <ul class="wp-menu">
+        <li><a href="#">پیشخوان</a></li>
+        <li><a href="#">ووکامرس</a></li>
+        <li><a href="#">سفارشات</a></li>
+        <li class="active"><a href="#">🧾 فاکتور میثم</a></li>
+        <li><a href="#">پوسته‌ها</a></li>
+        <li><a href="#">افزونه‌ها</a></li>
+    </ul>
+</aside>
+
+<main class="wp-content">
+    <div class="meysam-header" style="background: linear-gradient(135deg, #0f766e 0%, #14b8a6 100%); color:#fff; padding:24px 30px; border-radius:14px; margin-bottom:25px;">
+        <span style="background:rgba(255,255,255,0.2); padding:4px 10px; border-radius:20px; font-size:12px; font-weight:600;">افزونه رسمی فاکتور و برچسب پستی میثم v1.0.0</span>
+        <h1 style="color:#fff; margin:8px 0; font-size:22px; font-weight:800;">🧾 تنظیمات فاکتور و برچسب پستی میثم (Meysam)</h1>
+        <p style="margin:0; color:#ccfbf1; font-size:13px;">توسعه‌یافته توسط: <strong>مهندس علی فیروزی</strong> | شرکت هونا (<a href="https://hoonaco.ir" target="_blank" style="color:#fff;">hoonaco.ir</a>)</p>
+    </div>
+
+    <div id="save-alert" class="save-notice">✅ تنظیمات فاکتور میثم با موفقیت ذخیره شد!</div>
+
+    <div style="background:#fff; border-radius:12px; border:1px solid #e2e8f0; overflow:hidden;">
+        <nav style="display:flex; background:#f8fafc; border-bottom:1px solid #e2e8f0; padding:0 15px;">
+            <a href="javascript:void(0)" class="tab-btn active" data-tab="tab-seller" style="padding:14px 18px; text-decoration:none; color:#0f766e; font-weight:700; border-bottom:3px solid #0f766e;">🏢 مشخصات فروشنده و دارایی</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-template" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">🧾 قالب و مالیات</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-post" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">📦 برچسب پستی</a>
+            <a href="javascript:void(0)" class="tab-btn" data-tab="tab-about" style="padding:14px 18px; text-decoration:none; color:#475569; font-weight:600;">ℹ️ درباره هونا</a>
+        </nav>
+
+        <div id="tab-seller" class="tab-pane" style="padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>نام فروشگاه یا شرکت</th>
+                    <td><input type="text" value="شرکت هوشمندسازی و وب هونا"></td>
+                </tr>
+                <tr>
+                    <th>کد اقتصادی (اختیاری)</th>
+                    <td><input type="text" value="41189271" dir="ltr"></td>
+                </tr>
+                <tr>
+                    <th>شناسه ملی / کد ملی</th>
+                    <td><input type="text" value="10103928172" dir="ltr"></td>
+                </tr>
+                <tr>
+                    <th>کد پستی فرستنده</th>
+                    <td><input type="text" value="1998877665" dir="ltr"></td>
+                </tr>
+                <tr>
+                    <th>نشانی کامل</th>
+                    <td><textarea rows="2">تهران، میدان ونک، خیابان ملاصدرا، پلاک ۱۰۰</textarea></td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره مشخصات فروشنده</button>
+        </div>
+
+        <div id="tab-template" class="tab-pane" style="display:none; padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>قالب پیش‌فرض فاکتور</th>
+                    <td>
+                        <select>
+                            <option selected>فاکتور مدرن دیجی‌کالایی (بارکددار)</option>
+                            <option>فاکتور رسمی دارایی (ماده ۱۹)</option>
+                            <option>فیش حرارتی ۸ سانتی‌متری</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>نرخ مالیات ارزش افزوده (VAT)</th>
+                    <td><input type="number" value="9" style="width:70px;"> درصد</td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره قالب</button>
+        </div>
+
+        <div id="tab-post" class="tab-pane" style="display:none; padding:25px 30px;">
+            <table class="form-table">
+                <tr>
+                    <th>سایز برچسب پستی</th>
+                    <td>
+                        <select>
+                            <option selected>A5 (استاندارد کارتن‌های پستی و تیپاکس)</option>
+                            <option>A6 (بسته‌های کوچک)</option>
+                        </select>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" class="btn-save" onclick="saveDemo()">💾 ذخیره برچسب</button>
+        </div>
+
+        <div id="tab-about" class="tab-pane" style="display:none; padding:25px 30px;">
+            <div style="background:#f1f5f9; padding:20px; border-radius:10px; line-height:1.8;">
+                <h3>شرکت هوشمندسازی و وب هونا</h3>
+                <p>افزونه میثم با هدف حذف هزینه‌های سنگین افزونه‌های فاکتور ووکامرس برای کسب‌وکارهای ایرانی به صورت رایگان ارائه شده است.</p>
+                <p>👨‍💻 <strong>توسعه‌دهنده:</strong> مهندس علی فیروزی | 🌐 <a href="https://hoonaco.ir" target="_blank">hoonaco.ir</a></p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+const tabs = document.querySelectorAll('.tab-btn');
+const panes = document.querySelectorAll('.tab-pane');
+tabs.forEach(t => {
+    t.addEventListener('click', () => {
+        tabs.forEach(item => { item.style.color = '#475569'; item.style.borderBottom = 'none'; item.classList.remove('active'); });
+        panes.forEach(p => p.style.display = 'none');
+        t.style.color = '#0f766e';
+        t.style.borderBottom = '3px solid #0f766e';
+        t.classList.add('active');
+        document.getElementById(t.dataset.tab).style.display = 'block';
+    });
+});
+function saveDemo() {
+    const alert = document.getElementById('save-alert');
+    alert.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setTimeout(() => { alert.style.display = 'none'; }, 2000);
+}
+</script>
+</body>
+</html>
