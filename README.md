@@ -26,10 +26,10 @@
 
 | نام محصول | نوع | نسخه | لینک دانلود پکیج زیپ | پوشه سورس‌کد | دمو زنده فرانت‌اند | دمو پیشخوان تنظیمات |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **قالب بهار (Bahar)** | پوسته چندمنظوره | `v1.0.0` | [دانلود فایل زیپ (217KB)](releases/bahar-theme-v1.0.0.zip) | [مشاهده سورس](قالب-بهار-Bahar/bahar/) | [پیش‌نمایش](قالب-بهار-Bahar/preview.html) | [پنل تنظیمات](قالب-بهار-Bahar/admin-demo.html) |
-| **قالب حلما (Helma)** | پوسته هوش مصنوعی و SaaS | `v1.0.0` | [دانلود فایل زیپ (313KB)](releases/helma-theme-v1.0.0.zip) | [مشاهده سورس](قالب-حلما-Helma/helma/) | [پیش‌نمایش](قالب-حلما-Helma/preview.html) | [پنل تنظیمات](قالب-حلما-Helma/admin-demo.html) |
-| **ورود پیامکی هونا (Hoona OTP)** | افزونه ورود با پیامک | `v1.0.0` | [دانلود فایل زیپ (169KB)](releases/hoona-otp-v1.0.0.zip) | [مشاهده سورس](افزونه-ورود-پیامکی-Hoona-OTP/hoona-otp/) | [دمو پاپ‌آپ](افزونه-ورود-پیامکی-Hoona-OTP/demo.html) | [پنل تنظیمات](افزونه-ورود-پیامکی-Hoona-OTP/admin-demo.html) |
-| **سبد خرید شناور هونا (Hoona Cart)** | افزونه سبد خرید کشویی | `v1.0.0` | [دانلود فایل زیپ (164KB)](releases/hoona-cart-v1.0.0.zip) | [مشاهده سورس](افزونه-سبد-خرید-شناور-Hoona-Cart/hoona-cart/) | [فروشگاه دمو](افزونه-سبد-خرید-شناور-Hoona-Cart/demo.html) | [پنل تنظیمات](افزونه-سبد-خرید-شناور-Hoona-Cart/admin-demo.html) |
+| **قالب بهار (Bahar)** | پوسته چندمنظوره | `v1.0.0` | [⬇️ دانلود مستقیم (217KB)](https://github.com/alifiroozii/hoona-wp-suite/releases/download/v1.0.0/bahar-theme-v1.0.0.zip) | [مشاهده سورس](قالب-بهار-Bahar/bahar/) | [پیش‌نمایش](قالب-بهار-Bahar/preview.html) | [پنل تنظیمات](قالب-بهار-Bahar/admin-demo.html) |
+| **قالب حلما (Helma)** | پوسته هوش مصنوعی و SaaS | `v1.0.0` | [⬇️ دانلود مستقیم (313KB)](https://github.com/alifiroozii/hoona-wp-suite/releases/download/v1.0.0/helma-theme-v1.0.0.zip) | [مشاهده سورس](قالب-حلما-Helma/helma/) | [پیش‌نمایش](قالب-حلما-Helma/preview.html) | [پنل تنظیمات](قالب-حلما-Helma/admin-demo.html) |
+| **ورود پیامکی هونا (Hoona OTP)** | افزونه ورود با پیامک | `v1.0.0` | [⬇️ دانلود مستقیم (169KB)](https://github.com/alifiroozii/hoona-wp-suite/releases/download/v1.0.0/hoona-otp-v1.0.0.zip) | [مشاهده سورس](افزونه-ورود-پیامکی-Hoona-OTP/hoona-otp/) | [دمو پاپ‌آپ](افزونه-ورود-پیامکی-Hoona-OTP/demo.html) | [پنل تنظیمات](افزونه-ورود-پیامکی-Hoona-OTP/admin-demo.html) |
+| **سبد خرید شناور هونا (Hoona Cart)** | افزونه سبد خرید کشویی | `v1.0.0` | [⬇️ دانلود مستقیم (164KB)](https://github.com/alifiroozii/hoona-wp-suite/releases/download/v1.0.0/hoona-cart-v1.0.0.zip) | [مشاهده سورس](افزونه-سبد-خرید-شناور-Hoona-Cart/hoona-cart/) | [فروشگاه دمو](افزونه-سبد-خرید-شناور-Hoona-Cart/demo.html) | [پنل تنظیمات](افزونه-سبد-خرید-شناور-Hoona-Cart/admin-demo.html) |
 
 ---
 
