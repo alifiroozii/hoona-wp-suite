@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('hoona-otp/assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('hoona-otp/assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: #0f172a;
+            font-family: 'Vazirmatn', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 70px;
+            position: relative;
+            color: #ffffff;
+        }
+        .glow-1 {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
+            top: -100px;
+            right: 100px;
+            filter: blur(50px);
+        }
+        .glow-2 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.25) 0%, transparent 70%);
+            bottom: -100px;
+            left: -50px;
+            filter: blur(50px);
+        }
+        .content-side {
+            width: 590px;
+            z-index: 10;
+        }
+        .top-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.2);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            color: #c7d2fe;
+            font-size: 13.5px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .main-title {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .main-title span {
+            background: linear-gradient(135deg, #818cf8 0%, #c084fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .features-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+        .feat-pill {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .author-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            color: white;
+            font-size: 22px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+        .author-info h4 { font-size: 14.5px; color: #f8fafc; margin-bottom: 2px; }
+        .author-info p { font-size: 12.5px; color: #94a3b8; margin: 0; }
+        .author-info strong { color: #818cf8; }
+
+        /* ماک‌آپ کارت ورود */
+        .preview-side {
+            width: 440px;
+            z-index: 10;
+        }
+        .mockup-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6), 0 0 40px rgba(99, 102, 241, 0.25);
+            padding: 28px 24px;
+            color: #0f172a;
+            transform: rotate(-2deg);
+        }
+        .mockup-header {
+            text-align: center;
+            margin-bottom: 18px;
+        }
+        .badge-icon {
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, #6366f1, #4338ca);
+            color: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 22px;
+        }
+        .mockup-header h5 { font-size: 18px; font-weight: 800; margin-bottom: 4px; }
+        .mockup-header p { font-size: 12px; color: #64748b; }
+        .mockup-field {
+            background: #f8fafc;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 10px;
+            padding: 12px 14px;
+            font-size: 14px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #334155;
+        }
+        .mockup-btn {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: #fff;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 6px 14px -3px rgba(99, 102, 241, 0.4);
+            margin-bottom: 12px;
+        }
+        .mockup-footer {
+            display: flex;
+            justify-content: space-around;
+            padding-top: 12px;
+            border-top: 1px solid #f1f5f9;
+            font-size: 11px;
+            color: #64748b;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-1"></div>
+    <div class="glow-2"></div>
+
+    <div class="content-side">
+        <div class="top-badge">
+            🔥 جایگزین ۱۰۰٪ رایگان و اوپن‌سورس دیجیتس (Digits)
+        </div>
+        <h1 class="main-title">
+            افزونه ورود پیامکی <span>«هونا او‌تی‌پی» (Hoona OTP)</span>
+        </h1>
+        <p class="subtitle">
+            ورود و ثبت‌نام فوق‌سریع در وردپرس و ووکامرس فقط با یک شماره موبایل؛ اتصال بدون واسطه به خطوط خدماتی پترن (ارسال زیر ۳ ثانیه و عبور از بلک‌لیست مخابرات)، بدون قفل ionCube و بدون لایسنس.
+        </p>
+        <div class="features-row">
+            <div class="feat-pill">⚡ ارسال زیر ۳ ثانیه</div>
+            <div class="feat-pill">🛡️ امنیت OWASP ضداسپم</div>
+            <div class="feat-pill">📡 کاوه‌نگار، فراز، ملی‌پیامک، sms.ir</div>
+            <div class="feat-pill">🛍️ سازگاری کامل با ووکامرس</div>
+        </div>
+        <div class="author-box">
+            <div class="author-avatar">هـ</div>
+            <div class="author-info">
+                <h4>طراحی و توسعه: <strong>مهندس علی فیروزی</strong></h4>
+                <p>توسعه‌یافته در استودیو نرم‌افزار شرکت هونا — <strong>hoonaco.ir</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-side">
+        <div class="mockup-card">
+            <div class="mockup-header">
+                <div class="badge-icon">📱</div>
+                <h5>ورود یا ثبت‌نام سریع</h5>
+                <p>کد تایید ۴ رقمی به شماره شما پیامک شد</p>
+            </div>
+            <div class="mockup-field">
+                <span style="font-weight:700;">09121234567</span>
+                <span style="font-size:12px; color:#6366f1; font-weight:700;">ویرایش شماره</span>
+            </div>
+            <div class="mockup-field" style="border-color:#6366f1; background:#fff;">
+                <span style="letter-spacing: 6px; font-weight: 900; color:#4f46e5; font-size:18px;">4 9 1 8</span>
+                <span style="font-size:11.5px; color:#10b981; font-weight:700;">✓ تایید شد</span>
+            </div>
+            <div class="mockup-btn">
+                تایید و ورود به حساب کاربری
+            </div>
+            <div class="mockup-footer">
+                <span>⚡ پترن خط خدماتی</span>
+                <span>🛡️ ضد حملات اسپم</span>
+                <span>💎 ۱۰۰٪ رایگان</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

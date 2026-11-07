@@ -1,0 +1,321 @@
+/**
+ * استایل پاپ‌آپ شیشه‌ای و المان‌های افزونه ورود پیامکی هونا
+ */
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+.hoona-otp-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: 999999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    direction: rtl;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hoona-otp-overlay.hoona-active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.hoona-otp-modal {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(226, 232, 240, 0.8);
+    padding: 32px 28px;
+    transform: translateY(20px) scale(0.96);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.hoona-otp-overlay.hoona-active .hoona-otp-modal {
+    transform: translateY(0) scale(1);
+}
+
+.hoona-otp-close {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    background: #f1f5f9;
+    border: none;
+    font-size: 24px;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #64748b;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.hoona-otp-close:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+    transform: rotate(90deg);
+}
+
+.hoona-otp-header {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.hoona-otp-logo-badge {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 14px;
+    background: linear-gradient(135deg, #6366f1 0%, #4338ca 100%);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    box-shadow: 0 8px 16px -4px rgba(99, 102, 241, 0.4);
+}
+
+.hoona-otp-title {
+    margin: 0 0 8px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hoona-otp-subtitle {
+    margin: 0;
+    font-size: 13.5px;
+    color: #64748b;
+    line-height: 1.5;
+}
+
+.hoona-field-group {
+    margin-bottom: 18px;
+    text-align: right;
+}
+
+.hoona-field-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.hoona-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.hoona-input-wrapper input {
+    width: 100%;
+    height: 48px;
+    padding: 0 44px 0 16px;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #0f172a;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+}
+
+.hoona-input-wrapper input:focus {
+    outline: none;
+    border-color: #6366f1;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.12);
+}
+
+.hoona-input-icon {
+    position: absolute;
+    right: 14px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.hoona-submit-btn {
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px -3px rgba(99, 102, 241, 0.4);
+    transition: all 0.2s ease;
+}
+
+.hoona-submit-btn:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #4338ca 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px -4px rgba(99, 102, 241, 0.5);
+}
+
+.hoona-submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-loader {
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: hoonaSpin 0.7s linear infinite;
+}
+
+@keyframes hoonaSpin {
+    to { transform: rotate(360deg); }
+}
+
+.hoona-verify-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f1f5f9;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12.5px;
+    color: #475569;
+    margin-bottom: 16px;
+}
+
+.hoona-link-btn {
+    background: none;
+    border: none;
+    color: #6366f1;
+    font-weight: 700;
+    font-family: inherit;
+    cursor: pointer;
+    font-size: 12px;
+    padding: 0;
+    text-decoration: underline;
+}
+
+.hoona-timer-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.hoona-timer-wrap strong {
+    color: #0f172a;
+    margin-right: 4px;
+}
+
+.hoona-alert {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    line-height: 1.4;
+    text-align: right;
+}
+
+.hoona-alert.error {
+    background: #fef2f2;
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+}
+
+.hoona-alert.success {
+    background: #f0fdf4;
+    color: #15803d;
+    border: 1px solid #bbf7d0;
+}
+
+.hoona-otp-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 14px;
+    border-top: 1px solid #f1f5f9;
+    font-size: 11.5px;
+    color: #94a3b8;
+}
+
+.hoona-otp-footer a {
+    color: #6366f1;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* دکمه‌های متفرقه تریگر */
+.hoona-trigger-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: #6366f1;
+    color: #fff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+.hoona-wc-notice {
+    background: #e0e7ff;
+    border-right: 4px solid #6366f1;
+    padding: 12px 18px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.hoona-btn-small {
+    padding: 6px 12px;
+    background: #6366f1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12.5px;
+    font-family: inherit;
+}

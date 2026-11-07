@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش زنده افزونه ورود پیامکی هونا | Hoona OTP</title>
+    <link rel="stylesheet" href="hoona-otp/assets/css/hoona-otp.css">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0f172a;
+            color: #f8fafc;
+            font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 18px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            color: white;
+            font-size: 20px;
+        }
+        .brand-text h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 800;
+        }
+        .brand-text span {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+        }
+        .badge {
+            background: rgba(99, 102, 241, 0.2);
+            color: #a5b4fc;
+            border: 1px solid rgba(99, 102, 241, 0.4);
+            padding: 6px 16px;
+            border-radius: 9999px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .hero h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 900;
+            margin: 0 0 16px;
+            line-height: 1.3;
+            max-width: 800px;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #94a3b8;
+            max-width: 600px;
+            line-height: 1.8;
+            margin: 0 0 36px;
+        }
+        .demo-trigger {
+            background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+            color: white;
+            border: none;
+            padding: 16px 36px;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s;
+            font-family: inherit;
+        }
+        .demo-trigger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.6);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            width: 100%;
+            margin-top: 60px;
+            padding: 0 20px;
+        }
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: right;
+        }
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+        .feature-card h4 {
+            margin: 0 0 8px;
+            font-size: 16px;
+            color: #f1f5f9;
+        }
+        .feature-card p {
+            margin: 0;
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+        .demo-bar {
+            background: #1e293b;
+            padding: 12px 24px;
+            text-align: center;
+            font-size: 13px;
+            color: #cbd5e1;
+            border-top: 1px solid rgba(255,255,255,0.08);
+        }
+        .demo-bar a {
+            color: #818cf8;
+            text-decoration: none;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="brand">
+            <div class="brand-logo">H</div>
+            <div class="brand-text">
+                <h1>ورود پیامکی هونا (Hoona OTP)</h1>
+                <span>توسعه‌دهنده: علی فیروزی | شرکت هونا</span>
+            </div>
+        </div>
+        <div>
+            <button type="button" class="demo-trigger hoona-open-otp-modal" style="padding: 10px 22px; font-size: 14px;">
+                🔑 ورود / ثبت‌نام
+            </button>
+        </div>
+    </header>
+
+    <main class="hero">
+        <div class="badge">🔥 جایگزین ۱۰۰٪ رایگان، بدون لایسنس و سبک برای دیجیتس</div>
+        <h2>ورود و عضویت در سایت فقط با یک شماره موبایل</h2>
+        <p>بدون نیاز به حفظ کردن رمز عبور یا وارد کردن ایمیل! با وب‌سرویس‌های خدماتی پترن در کمتر از ۳ ثانیه وارد سایت و ووکامرس شوید.</p>
+        
+        <button type="button" class="demo-trigger hoona-open-otp-modal">
+            <span>تست زنده پنجره پاپ‌آپ ورود</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h4>ارسال آنی پترن (زیر ۳ ثانیه)</h4>
+                <p>پشتیبانی مستقیم از کاوه نگار، فراز اس‌ام‌اس (IPPanel)، ملی پیامک و sms.ir با عبور از بلک‌لیست مخابرات.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛍️</div>
+                <h4>سازگاری کامل با ووکامرس</h4>
+                <p>ثبت اتوماتیک شماره در صورت‌حساب مشتری ووکامرس و نمایش فرم ورود سریع در صفحه تسویه‌حساب.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h4>امنیت استوار (OWASP)</h4>
+                <p>مجهز به سیستم ضداسپم، Rate Limiting و جلوگیری از حملات بمبر و ارسال پیامک‌های مکرر.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💎</div>
+                <h4>کدنویسی تمیز و سبک</h4>
+                <p>بدون قفل ionCube، حجم زیر ۳۰۰ کیلوبایت و بارگذاری فوق‌سریع بدون افت رتبه سئو و سرعت لود.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- شبیه‌ساز پاپ‌آپ در فرانت‌اند دمو -->
+    <div id="hoona-otp-modal-overlay" class="hoona-otp-overlay">
+        <div class="hoona-otp-modal" role="dialog" aria-modal="true">
+            <button type="button" class="hoona-otp-close" id="hoona-otp-close-btn" aria-label="بستن">&times;</button>
+            
+            <div class="hoona-otp-header">
+                <div class="hoona-otp-logo-badge">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 class="hoona-otp-title">ورود یا ثبت‌نام سریع</h3>
+                <p class="hoona-otp-subtitle">کد تایید یکبار مصرف به شماره موبایل شما پیامک خواهد شد.</p>
+            </div>
+
+            <!-- مرحله ۱ -->
+            <div id="hoona-step-phone" class="hoona-step active">
+                <div class="hoona-field-group">
+                    <label for="hoona_user_phone">شماره تلفن همراه</label>
+                    <div class="hoona-input-wrapper">
+                        <input type="tel" id="hoona_user_phone" placeholder="09123456789" maxlength="11" dir="ltr" value="09121234567" />
+                        <span class="hoona-input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div id="hoona-phone-error" class="hoona-alert error" style="display: none;"></div>
+
+                <button type="button" id="demo-btn-send" class="hoona-submit-btn">
+                    <span class="btn-text">ارسال کد ورود</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </div>
+
+            <!-- مرحله ۲ -->
+            <div id="hoona-step-verify" class="hoona-step" style="display: none;">
+                <div class="hoona-verify-info">
+                    <span>کد تستی <strong style="color: #4f46e5;">(1234)</strong> به شماره <strong id="hoona-display-phone" dir="ltr">09121234567</strong> ارسال شد.</span>
+                    <button type="button" id="demo-btn-change" class="hoona-link-btn">ویرایش شماره</button>
+                </div>
+
+                <div class="hoona-field-group">
+                    <label for="hoona_otp_code">کد تایید ۴ رقمی</label>
+                    <div class="hoona-input-wrapper">
+                        <input type="text" id="hoona_otp_code" placeholder="1234" maxlength="4" dir="ltr" />
+                        <span class="hoona-input-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="hoona-timer-wrap">
+                    <span id="hoona-timer-text">امکان ارسال مجدد تا: <strong id="hoona-countdown">02:00</strong></span>
+                    <button type="button" id="demo-btn-resend" class="hoona-link-btn" style="display: none;">ارسال مجدد کد</button>
+                </div>
+
+                <div id="hoona-verify-error" class="hoona-alert error" style="display: none;"></div>
+                <div id="hoona-verify-success" class="hoona-alert success" style="display: none;"></div>
+
+                <button type="button" id="demo-btn-verify" class="hoona-submit-btn">
+                    <span class="btn-text">تایید و ورود به حساب</span>
+                    <span class="btn-loader" style="display: none;"></span>
+                </button>
+            </div>
+
+            <div class="hoona-otp-footer">
+                طراحی و توسعه: <a href="https://hoonaco.ir" target="_blank">علی فیروزی (شرکت هونا)</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="demo-bar">
+        ⚡ افزونه ورود پیامکی هونا | جهت مشاهده پنل ادمین: <a href="admin-demo.html">مشاهده دموی تنظیمات پیشخوان وردپرس</a>
+    </footer>
+
+    <script>
+    // اسکریپت شبیه‌ساز دموی فرانت‌اند
+    const overlay = document.getElementById('hoona-otp-modal-overlay');
+    const openBtns = document.querySelectorAll('.hoona-open-otp-modal');
+    const closeBtn = document.getElementById('hoona-otp-close-btn');
+
+    openBtns.forEach(b => b.addEventListener('click', () => {
+        overlay.style.display = 'flex';
+        setTimeout(() => overlay.classList.add('hoona-active'), 10);
+    }));
+
+    closeBtn.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeModal(); });
+
+    function closeModal() {
+        overlay.classList.remove('hoona-active');
+        setTimeout(() => overlay.style.display = 'none', 300);
+    }
+
+    const stepPhone = document.getElementById('hoona-step-phone');
+    const stepVerify = document.getElementById('hoona-step-verify');
+    const btnSend = document.getElementById('demo-btn-send');
+    const btnVerify = document.getElementById('demo-btn-verify');
+    const btnChange = document.getElementById('demo-btn-change');
+    const phoneInput = document.getElementById('hoona_user_phone');
+    const codeInput = document.getElementById('hoona_otp_code');
+    const phoneError = document.getElementById('hoona-phone-error');
+    const verifyError = document.getElementById('hoona-verify-error');
+    const verifySuccess = document.getElementById('hoona-verify-success');
+
+    btnSend.addEventListener('click', () => {
+        phoneError.style.display = 'none';
+        if (!phoneInput.value.match(/^09[0-9]{9}$/)) {
+            phoneError.textContent = 'لطفاً شماره موبایل معتبر ۱۱ رقمی وارد کنید (مثال: 09121234567)';
+            phoneError.style.display = 'block';
+            return;
+        }
+        btnSend.querySelector('.btn-text').style.display = 'none';
+        btnSend.querySelector('.btn-loader').style.display = 'block';
+
+        setTimeout(() => {
+            btnSend.querySelector('.btn-text').style.display = 'block';
+            btnSend.querySelector('.btn-loader').style.display = 'none';
+            stepPhone.style.display = 'none';
+            stepVerify.style.display = 'block';
+            codeInput.focus();
+        }, 600);
+    });
+
+    btnChange.addEventListener('click', () => {
+        stepVerify.style.display = 'none';
+        stepPhone.style.display = 'block';
+    });
+
+    btnVerify.addEventListener('click', () => {
+        verifyError.style.display = 'none';
+        verifySuccess.style.display = 'none';
+
+        if (codeInput.value !== '1234') {
+            verifyError.textContent = 'کد تایید اشتباه است! در حالت دمو عدد ۱۲۳۴ را وارد کنید.';
+            verifyError.style.display = 'block';
+            return;
+        }
+
+        btnVerify.querySelector('.btn-text').style.display = 'none';
+        btnVerify.querySelector('.btn-loader').style.display = 'block';
+
+        setTimeout(() => {
+            btnVerify.querySelector('.btn-text').style.display = 'block';
+            btnVerify.querySelector('.btn-loader').style.display = 'none';
+            verifySuccess.textContent = 'ورود با موفقیت انجام شد! خوش آمدید.';
+            verifySuccess.style.display = 'block';
+            setTimeout(() => {
+                alert('🎉 ورود تستی موفقیت‌آمیز بود!');
+                closeModal();
+            }, 1000);
+        }, 500);
+    });
+    </script>
+</body>
+</html>

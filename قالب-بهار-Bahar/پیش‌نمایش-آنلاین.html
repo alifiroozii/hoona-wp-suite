@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>پیش‌نمایش اینترپرایز پوسته بهار (Bahar Pro) | شرکت هونا</title>
+    <!-- Core Theme CSS -->
+    <link rel="stylesheet" href="bahar/assets/css/main.css">
+    <style>
+        .demo-bar {
+            background: #0f172a;
+            color: #ffffff;
+            padding: 0.5rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .demo-bar a {
+            color: #60a5fa;
+            text-decoration: underline;
+        }
+        .demo-bar .badge {
+            background: linear-gradient(90deg, #2563eb, #0d9488);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+        [data-theme="dark"] .demo-bar {
+            background: #090d16;
+            border-bottom: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar"></div>
+
+    <!-- Demo Status Notice -->
+    <div class="demo-bar">
+        <div style="display:flex; align-items:center; gap:0.75rem;">
+            <span class="badge">Bahar Pro 2.0</span>
+            <span>طراح و برنامه‌نویس: <strong>علی فیروزی</strong> • شرکت هونا (hoonaco.ir)</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+            <span style="font-size:0.75rem; color:#94a3b8;">کلید میانبر جستجو: <kbd style="background:#1e293b; padding:1px 5px; border-radius:4px; font-family:monospace;">⌘K</kbd></span>
+            <span><a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer">وب‌سایت هونا</a></span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="site-header" id="masthead">
+        <div class="container header-inner">
+            
+            <div class="site-brand">
+                <a href="#" class="site-title">
+                    <span class="brand-dot"></span>
+                    <span>بهار • هونا</span>
+                </a>
+            </div>
+
+            <!-- Refined Desktop Navigation with 13.5px Proportional Typography -->
+            <nav class="site-navigation" id="site-navigation" aria-label="منوی اصلی">
+                <ul class="main-menu">
+                    <li class="current-menu-item"><a href="#">صفحه نخست</a></li>
+                    <li><a href="#features">امکانات</a></li>
+                    <li><a href="#pricing">تعرفه‌ها</a></li>
+                    <li><a href="#about">درباره ما</a></li>
+                    <li><a href="#testimonials">نظرات</a></li>
+                    <li><a href="#faq">سوالات</a></li>
+                    <li><a href="#blog">وبلاگ</a></li>
+                    <li><a href="#contact">تماس</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <!-- Search Trigger -->
+                <button class="search-trigger-btn" aria-label="جستجو در سایت" title="جستجوی سریع (⌘K)">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>جستجو</span>
+                    <span class="search-shortcut-badge">⌘K</span>
+                </button>
+
+                <!-- Dark / Light Mode Switcher -->
+                <button class="theme-toggle-btn" aria-label="تغییر تم شب و روز" title="سوئیچ بین حالت روشن و تاریک">
+                    <svg class="icon-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <svg class="icon-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+
+                <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    شروع همکاری
+                </a>
+
+                <button class="mobile-menu-toggle" aria-label="باز کردن منوی موبایل">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Mobile Slide-over Drawer -->
+    <div class="mobile-drawer-backdrop" aria-hidden="true"></div>
+    <aside class="mobile-drawer" id="mobile-drawer" aria-label="منوی همراه">
+        <div class="mobile-drawer-header">
+            <div class="site-brand">
+                <span class="brand-dot"></span>
+                <span style="font-weight:700; color:var(--text-main); font-size:1.05rem;">بهار • شرکت هونا</span>
+            </div>
+            <button class="mobile-drawer-close" aria-label="بستن منو">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+        </div>
+
+        <nav class="mobile-drawer-menu">
+            <a href="#" class="current-menu-item"><span>صفحه نخست</span><span>←</span></a>
+            <a href="#features"><span>امکانات و خدمات</span><span>←</span></a>
+            <a href="#pricing"><span>تعرفه‌ها و پلن‌ها</span><span>←</span></a>
+            <a href="#about"><span>درباره شرکت هونا</span><span>←</span></a>
+            <a href="#testimonials"><span>نظرات مشتریان</span><span>←</span></a>
+            <a href="#faq"><span>سوالات متداول</span><span>←</span></a>
+            <a href="#blog"><span>وبلاگ و مقالات</span><span>←</span></a>
+            <a href="#contact"><span>تماس و مشاوره</span><span>←</span></a>
+        </nav>
+
+        <div class="mobile-drawer-footer">
+            <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width:100%; justify-content:center;">
+                شروع همکاری
+            </a>
+            <div style="font-size:0.75rem; color:var(--text-muted); text-align:center; margin-top:0.5rem;">
+                طراحی و توسعه: علی فیروزی • شرکت هونا (hoonaco.ir)
+            </div>
+        </div>
+    </aside>
+
+    <!-- Global Search Modal -->
+    <div class="search-modal-backdrop" role="dialog" aria-modal="true" aria-label="پنجره جستجو">
+        <div class="search-modal-box">
+            <div class="search-modal-header">
+                <span style="font-weight:700; color:var(--text-main); font-size:1rem; display:flex; align-items:center; gap:0.5rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    جستجوی سریع در سایت
+                </span>
+                <button class="search-modal-close" aria-label="بستن">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </button>
+            </div>
+            <form role="search" method="get" class="search-form" action="#" style="display: flex; gap: 0.5rem; width: 100%;">
+                <div style="position: relative; flex-grow: 1;">
+                    <input type="search" class="search-field" placeholder="عبارت مورد نظر خود را بنویسید..." style="width: 100%; padding: 0.85rem 1.25rem 0.85rem 2.75rem; border: 1px solid var(--border-light); border-radius: var(--radius-md); background-color: var(--bg-surface); outline: none;" />
+                    <span style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted); pointer-events: none;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    </span>
+                </div>
+                <button type="button" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">جستجو</button>
+            </form>
+            <div style="margin-top:1.25rem; font-size:0.8rem; color:var(--text-muted); display:flex; justify-content:space-between;">
+                <span>برای بستن کلید <kbd style="background:var(--bg-muted); padding:2px 6px; border-radius:4px; border:1px solid var(--border-light);">Esc</kbd> را بزنید</span>
+                <span>طراحی اختصاصی علی فیروزی • شرکت هونا</span>
+            </div>
+        </div>
+    </div>
+
+    <main id="primary" class="site-main">
+
+        <!-- 1. Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        ✨ نسخه ۱.۰ پوسته چندمنظوره بهار | شرکت هونا
+                    </div>
+
+                    <h1 class="hero-title">
+                        <span class="hero-title-text">خلق تجربه دیجیتال مدرن، پرسرعت و امن</span>
+                    </h1>
+
+                    <p class="hero-lead">
+                        طراحی و توسعه یافته توسط <strong>علی فیروزی</strong> در <strong>شرکت هونا (hoonaco.ir)</strong> با تمرکز بر امنیت نفوذناپذیر، سرعت لود زیر ۱ ثانیه و تایپوگرافی فارسی استاندارد.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#features" class="btn btn-primary btn-lg">
+                            مشاهده امکانات و خدمات
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        </a>
+
+                        <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-lg">
+                            درباره شرکت هونا
+                        </a>
+                    </div>
+
+                    <div class="hero-trust">
+                        <div class="trust-avatars">
+                            <div class="trust-avatar" style="background:#e0e7ff; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; color:#3730a3;">ع‌ف</div>
+                            <div class="trust-avatar" style="background:#dcfce7; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; color:#166534;">هونا</div>
+                            <div class="trust-avatar" style="background:#fef3c7; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; color:#92400e;">امن</div>
+                        </div>
+                        <div class="trust-text">
+                            <span>مورد اعتماد صدها کسب‌وکار و مشتریان شرکت هونا (hoonaco.ir)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Visual Preview Card -->
+                <div class="hero-visual">
+                    <div class="floating-badge badge-top">
+                        <div style="width:10px; height:10px; border-radius:50%; background:#10b981; box-shadow:0 0 8px #10b981;"></div>
+                        <span style="font-size:0.85rem; font-weight:600; color:var(--text-main);">امنیت سخت‌گیرانه (OWASP Ready)</span>
+                    </div>
+
+                    <div class="hero-card-preview">
+                        <div class="hero-preview-topbar">
+                            <div class="topbar-dots">
+                                <span class="topbar-dot red"></span>
+                                <span class="topbar-dot yellow"></span>
+                                <span class="topbar-dot green"></span>
+                            </div>
+                            <span style="font-size:0.8rem; color:var(--text-muted); font-family:monospace;">hoonaco.ir/bahar</span>
+                        </div>
+
+                        <div class="hero-preview-content">
+                            <div style="background:var(--color-primary-light); border:1px solid rgba(37,99,235,0.15); border-radius:var(--radius-md); padding:1.25rem;">
+                                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                                    <span style="font-weight:700; color:var(--color-primary); font-size:0.95rem;">عملکرد فوق‌العاده پوسته</span>
+                                    <span style="font-size:0.75rem; background:rgba(37,99,235,0.2); color:var(--color-primary); padding:2px 8px; border-radius:10px; font-weight:600;">۹۹/۱۰۰</span>
+                                </div>
+                                <div style="width:100%; height:8px; background:rgba(37,99,235,0.2); border-radius:4px; overflow:hidden;">
+                                    <div style="width:98%; height:100%; background:var(--color-primary); border-radius:4px;"></div>
+                                </div>
+                            </div>
+
+                            <div class="hero-metric-row">
+                                <div class="metric-pill">
+                                    <span class="metric-pill-title">گواهینامه امنیت</span>
+                                    <span class="metric-pill-value" style="color:#059669;">تأیید شده</span>
+                                </div>
+                                <div class="metric-pill">
+                                    <span class="metric-pill-title">سرعت لودینگ</span>
+                                    <span class="metric-pill-value" style="color:var(--color-primary);">۰.۴ ثانیه</span>
+                                </div>
+                            </div>
+
+                            <div style="background:var(--bg-muted); border:1px solid var(--border-light); padding:1rem; border-radius:var(--radius-md); display:flex; align-items:center; gap:0.75rem;">
+                                <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:var(--color-primary-light); color:var(--color-primary); display:flex; align-items:center; justify-content:center;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </div>
+                                <div>
+                                    <div style="font-weight:600; font-size:0.85rem; color:var(--text-main);">توسعه‌یافته توسط علی فیروزی</div>
+                                    <div style="font-size:0.75rem; color:var(--text-muted);">پشتیبانی و مهندسی شرکت هونا (hoonaco.ir)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="floating-badge badge-bottom">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <span style="font-size:0.85rem; font-weight:600; color:var(--text-main);">حالت تاریک و روشن هوشمند</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. Features Grid -->
+        <section class="section section-bg-muted" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">امکانات و مزایای اختصاصی</span>
+                    <h2 class="section-title">چرا پوسته بهار انتخابی متمایز است؟</h2>
+                    <p class="section-desc">طراحی شده توسط شرکت هونا با تمرکز بر بالاترین استانداردهای امنیتی، سرعت بارگذاری و سادگی مدیریت محتوا.</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper" style="background:#fee2e2; color:#dc2626;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3 class="feature-title">امنیت سخت‌گیرانه (Hardened)</h3>
+                        <p class="feature-desc">مجهز به هدرهای امنیتی مدرن (HSTS, X-Frame, MIME)، مسدودسازی اتک‌های XML-RPC Pingback و جلوگیری از استخراج یوزرنیم مدیران.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                        </div>
+                        <h3 class="feature-title">سرعت خارق‌العاده و سبک</h3>
+                        <p class="feature-desc">فاقد هرگونه اسکریپت سنگین اضافه؛ لود صفحات زیر ۱ ثانیه با بالاترین نمره در آزمون‌های بین‌المللی Google PageSpeed.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper" style="background:#ccfbf1; color:#0d9488;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+                        </div>
+                        <h3 class="feature-title">پنل سفارشی‌ساز زنده</h3>
+                        <p class="feature-desc">تغییر رنگ‌ها، لوگو، متن‌های هیرو و تنظیمات فوتر به صورت آنی در پیشخوان وردپرس بدون نیاز به دانش برنامه‌نویسی.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper" style="background:#fef3c7; color:#d97706;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                        </div>
+                        <h3 class="feature-title">راست‌چین و فونت وزیرمتن</h3>
+                        <p class="feature-desc">پشتیبانی کامل و استاندارد از زبان فارسی با فونت بهینه‌سازی‌شده وزیرمتن به شکل فایل‌های لوکال بدون وابستگی به CDN خارجی.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper" style="background:#ede9fe; color:#7c3aed;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3 class="feature-title">حالت شب و روز هوشمند</h3>
+                        <p class="feature-desc">قابلیت سوئیچ آنی میان تم تیره و روشن (Dark / Light) همراه با ذخیره خودکار انتخاب کاربر در حافظه مرورگر.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon-wrapper" style="background:#dbeafe; color:#2563eb;">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <h3 class="feature-title">سئو تکنیکال و Schema</h3>
+                        <p class="feature-desc">ساختار نشانه‌گذاری معنایی HTML5، سرتیترهای استاندارد سئو و سرعت ایندکس عالی در موتور جستجوی گوگل.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. About Section -->
+        <section class="section" id="about">
+            <div class="container split-grid">
+                <div class="split-content">
+                    <span class="section-subtitle">درباره شرکت هونا</span>
+                    <h2 class="section-title">نوآوری در مهندسی وب و طراحی نرم‌افزار</h2>
+                    <p>پوسته بهار حاصل تجربه و دانش فنی <strong>علی فیروزی</strong> در <strong>شرکت هونا (hoonaco.ir)</strong> است. این محصول با ترکیب استانداردهای روز جهانی، ظاهری پاک و دلنشین و پروتکل‌های ضد نفوذ ساخته شده است.</p>
+
+                    <div class="check-list">
+                        <div class="check-item"><div class="check-icon">✓</div><span>رعایت کامل الزامات امنیتی OWASP و فیلتر ورودی‌ها و خروجی‌ها</span></div>
+                        <div class="check-item"><div class="check-icon">✓</div><span>شخصی‌سازی آنی رنگ‌ها و متون برند در پیشخوان وردپرس</span></div>
+                        <div class="check-item"><div class="check-icon">✓</div><span>فونت فارسی لوکال و بدون قطعی در سرورهای داخلی</span></div>
+                        <div class="check-item"><div class="check-icon">✓</div><span>کدنویسی تمیز با قابلیت توسعه ماژولار و سئو فرندلی</span></div>
+                    </div>
+
+                    <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                        ورود به وب‌سایت رسمی هونا (hoonaco.ir)
+                    </a>
+                </div>
+
+                <div class="split-visual" style="background:linear-gradient(135deg, var(--bg-muted) 0%, var(--bg-subtle) 100%); border:1px solid var(--border-light); border-radius:var(--radius-xl); padding:3rem 2.5rem; box-shadow:var(--shadow-sm);">
+                    <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:1.5rem; color:var(--text-main);">شاخص‌های امنیتی و فنی</h3>
+                    <div style="display:flex; flex-direction:column; gap:1.75rem;">
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-weight:600; font-size:0.9rem;">
+                                <span>امتیاز امنیت و عدم آسیب‌پذیری</span>
+                                <span style="color:#059669;">۱۰۰%</span>
+                            </div>
+                            <div style="width:100%; height:8px; background:#e2e8f0; border-radius:4px; overflow:hidden;"><div style="width:100%; height:100%; background:#059669;"></div></div>
+                        </div>
+
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-weight:600; font-size:0.9rem;">
+                                <span>بهینه‌سازی و انطباق با هسته وردپرس</span>
+                                <span style="color:var(--color-primary);">۵.۸ تا ۶.۷+</span>
+                            </div>
+                            <div style="width:100%; height:8px; background:#e2e8f0; border-radius:4px; overflow:hidden;"><div style="width:98%; height:100%; background:var(--color-primary);"></div></div>
+                        </div>
+
+                        <div>
+                            <div style="display:flex; justify-content:space-between; margin-bottom:0.5rem; font-weight:600; font-size:0.9rem;">
+                                <span>استاندارد دسترس‌پذیری وب (a11y)</span>
+                                <span style="color:#d97706;">Grade A+</span>
+                            </div>
+                            <div style="width:100%; height:8px; background:#e2e8f0; border-radius:4px; overflow:hidden;"><div style="width:95%; height:100%; background:#d97706;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Numbers Counter Row -->
+            <div class="container">
+                <div class="stats-strip">
+                    <div class="stat-item"><span class="stat-number" data-target="100" data-suffix="%">۱۰۰%</span><span class="stat-label">امنیت تضمین شده با هدرهای ایمن</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="99" data-suffix="/100">۹۹</span><span class="stat-label">امتیاز عملکرد لایت‌هاوس</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="24" data-suffix="/7">۲۴/۷</span><span class="stat-label">پشتیبانی تیم هونا (hoonaco.ir)</span></div>
+                    <div class="stat-item"><span class="stat-number" data-target="1" data-suffix="کلیک">۱</span><span class="stat-label">نصب سریع در پیشخوان وردپرس</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Testimonials Section -->
+        <section class="section section-bg-muted" id="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">اعتماد شما، افتخار ماست</span>
+                    <h2 class="section-title">دیدگاه مدیران و مشتریان شرکت هونا</h2>
+                    <p class="section-desc">آنچه سازمان‌ها و استارتاپ‌های پیشرو درباره پایداری و کیفیت محصولات ما می‌گویند.</p>
+                </div>
+
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">«پوسته بهار سرعت سایت ما را دگرگون کرد. قبلاً لود سایتمان بالای ۴ ثانیه بود و حالا در کمتر از ۰.۵ ثانیه لود می‌شود. پشتیبانی تیم هونا واقعاً بی‌نظیر است.»</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">م‌ر</div>
+                            <div>
+                                <div class="testimonial-author-name">مهندس رضا محمدی</div>
+                                <div class="testimonial-author-role">مدیر فنی استارتاپ تک‌نو</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">«امنیت بالای این پوسته و عدم افشای نسخه وردپرس خیال ما را از بابت اسکنرهای امنیتی کاملاً راحت کرد. طراحی فارسی و فونت وزیرمتن آن بسیار چشم‌نواز است.»</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background:linear-gradient(135deg, #0d9488 0%, #10b981 100%);">س‌ح</div>
+                            <div>
+                                <div class="testimonial-author-name">سارا حسینی</div>
+                                <div class="testimonial-author-role">مدیر بازاریابی دیجیتال</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div>
+                            <div class="testimonial-rating">★★★★★</div>
+                            <p class="testimonial-quote">«تغییر رنگ‌ها و تنظیمات هدر در سفارشی‌ساز وردپرس در چند دقیقه انجام شد. بعد از سال‌ها کار با پوسته‌های سنگین و باگی، بهار یک تجربه ناب و خالص بود.»</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar" style="background:linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">ع‌ک</div>
+                            <div>
+                                <div class="testimonial-author-name">علی کریمی</div>
+                                <div class="testimonial-author-role">بنیان‌گذار آژانس وب‌نما</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Pricing Tables Section -->
+        <section class="section" id="pricing">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">سرمایه‌گذاری شفاف</span>
+                    <h2 class="section-title">پلن‌های همکاری و تعرفه‌های خدماتی</h2>
+                    <p class="section-desc">پلن مورد نظر خود را متناسب با وسعت کسب‌وکار خود انتخاب کنید.</p>
+                </div>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 class="pricing-name">پلن استارتاپ</h3>
+                        <p class="pricing-desc">مناسب برای کسب‌وکارهای نوپا، وبلاگ‌های شخصی و معرفی اولیه خدمات.</p>
+                        <div class="pricing-price-wrap">
+                            <span class="pricing-price">۳,۵۰۰,۰۰۰</span>
+                            <span class="pricing-currency">تومان</span>
+                            <span class="pricing-period">/ سالانه</span>
+                        </div>
+                        <div class="pricing-features-list">
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>قالب اختصاصی بهار با فونت وزیرمتن</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>طراحی ۱۰۰% واکنش‌گرا و سریع</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>پشتیبانی فنی ۶ ماهه هونا</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon cross">✕</span><span>شخصی‌سازی پیشرفته و اختصاصی</span></div>
+                        </div>
+                        <a href="#contact" class="btn btn-secondary">سفارش پلن استارتاپ</a>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <span class="pricing-popular-pill">پیشنهاد ویژه هونا</span>
+                        <h3 class="pricing-name">پلن حرفه‌ای (سازمانی)</h3>
+                        <p class="pricing-desc">ایده‌آل برای شرکت‌های در حال رشد، فروشگاه‌ها و برندهای معتبر با بالاترین نیاز امنیتی.</p>
+                        <div class="pricing-price-wrap">
+                            <span class="pricing-price">۷,۹۰۰,۰۰۰</span>
+                            <span class="pricing-currency">تومان</span>
+                            <span class="pricing-period">/ سالانه</span>
+                        </div>
+                        <div class="pricing-features-list">
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>تمام امکانات پلن استارتاپ</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>پکیج امنیت سخت‌گیرانه OWASP + ضد دیداس</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>حالت شب و روز هوشمند (Dark/Light Mode)</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>پشتیبانی اختصاصی VIP یک‌ساله</span></div>
+                        </div>
+                        <a href="#contact" class="btn btn-primary">انتخاب پلن حرفه‌ای</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3 class="pricing-name">پلن اینترپرایز (اختصاصی)</h3>
+                        <p class="pricing-desc">برای هلدینگ‌ها و پلتفرم‌های پربازدید با نیازمندی‌های سفارشی و معماری ابری.</p>
+                        <div class="pricing-price-wrap">
+                            <span class="pricing-price">تماس</span>
+                            <span class="pricing-currency">بگیرید</span>
+                        </div>
+                        <div class="pricing-features-list">
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>طراحی ماژول‌های اختصاصی بر پایه API</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>مشاوره سئو و پرفورمنس اختصاصی</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>تست نفوذ و ارزیابی امنیتی دوره‌ای</span></div>
+                            <div class="pricing-feature-item"><span class="pricing-feature-icon check">✓</span><span>مدیر پروژه اختصاصی از شرکت هونا</span></div>
+                        </div>
+                        <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">مشاوره اختصاصی</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. FAQ Accordion Section -->
+        <section class="section section-bg-muted" id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">پاسخ به سوالات شما</span>
+                    <h2 class="section-title">پرسش‌های متداول درباره پوسته بهار</h2>
+                    <p class="section-desc">پاسخ به پرتکرارترین سوالات کاربران پیرامون نصب، امنیت و شخصی‌سازی پوسته.</p>
+                </div>
+
+                <div class="faq-accordion">
+                    <div class="faq-item is-open">
+                        <button class="faq-question" aria-expanded="true">
+                            <span>آیا برای کار با این پوسته به کدنویسی نیاز دارم؟</span>
+                            <span class="faq-icon-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            خیر، هیچ‌گونه نیازی به دانش کدنویسی ندارید. تمام امکانات از جمله تغییر رنگ‌ها، فونت، متن‌های هیرو، دکمه‌ها و لوگو از طریق بخش «نمایش ← سفارشی‌سازی» در پیشخوان وردپرس به صورت کاملاً گرافیکی و با پیش‌نمایش آنی قابل تنظیم است.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>آیا فونت وزیرمتن با قطعی اینترنت بین‌الملل دچار مشکل می‌شود؟</span>
+                            <span class="faq-icon-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            خیر. فونت استاندارد وزیرمتن (Vazirmatn) مستقیماً داخل پوشه قالب به صورت محلی و با فرمت فوق‌سریع WOFF2 قرار داده شده است و هیچ ارتباطی با CDNهای خارجی مانند گوگل‌فونت ندارد؛ در نتیجه در سرورهای داخلی و حالت آفلاین نیز با سرعت ۱۰۰٪ لود می‌شود.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>امنیت قالب چگونه تضمین شده است؟</span>
+                            <span class="faq-icon-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            پوسته بهار دارای سیستم دفاعی ۶ لایه شامل مسدودسازی اتک‌های XML-RPC Pingback، جلوگیری از استخراج یوزرنیم مدیران (User Enumeration)، حذف ردپای نسخه وردپرس، تزریق هدرهای X-Frame-Options و MIME-Sniffing، و فیلتر سخت‌گیرانه ورودی‌ها مطابق استانداردهای OWASP است.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" aria-expanded="false">
+                            <span>چگونه می‌توانم حالت تاریک (Dark Mode) را فعال کنم؟</span>
+                            <span class="faq-icon-arrow">▼</span>
+                        </button>
+                        <div class="faq-answer">
+                            دکمه خورشید و ماه در هدر بالای سایت قرار گرفته است. کاربر با یک کلیک می‌تواند بین حالت روشن و تیره سوئیچ کند. پوسته به صورت خودکار انتخاب کاربر را در حافظه مرورگر ذخیره می‌کند تا در دفعات بعدی نیز با همان تم باز شود.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Latest Blog Posts Grid -->
+        <section class="section" id="blog">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-subtitle">وبلاگ و مقالات آموزشی</span>
+                    <h2 class="section-title">آخرین بینش‌ها و مطالب خواندنی</h2>
+                    <p class="section-desc">جدیدترین مقالات در زمینه توسعه وب، امنیت و برندینگ را دنبال کنید.</p>
+                </div>
+
+                <div class="posts-grid">
+                    <article class="post-card">
+                        <div class="post-thumbnail-wrap">
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #eff6ff 0%, #f1f5f9 100%);color:var(--color-primary);">
+                                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <div class="post-meta-top">
+                                <span class="post-category-tag">امنیت وب</span>
+                                <span>۱۵ آبان ۱۴۰۳</span>
+                                <span class="meta-dot">•</span>
+                                <span>۴ دقیقه مطالعه</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="#">راهنمای جامع ایمن‌سازی وب‌سایت‌های وردپرسی در برابر حملات سایبری</a>
+                            </h3>
+                            <div class="post-card-excerpt">
+                                <p>بررسی اصول هاردنینگ وردپرس، بستن درگاه‌های آسیب‌پذیری و نقش هدرهای امنیتی در پیشگیری از نفوذ سایبری...</p>
+                            </div>
+                            <div class="post-card-footer">
+                                <div class="post-author"><span>علی فیروزی</span></div>
+                                <span class="read-more-link">مطالعه مقاله ←</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-thumbnail-wrap">
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #ccfbf1 0%, #f1f5f9 100%);color:#0d9488;">
+                                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line></svg>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <div class="post-meta-top">
+                                <span class="post-category-tag" style="background:#ccfbf1; color:#0d9488;">طراحی و سرعت</span>
+                                <span>۱۲ آبان ۱۴۰۳</span>
+                                <span class="meta-dot">•</span>
+                                <span>۳ دقیقه مطالعه</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="#">چگونه یک قالب تمیز و روشن (Light Theme) نرخ تبدیل را تا ۴۰٪ افزایش می‌دهد؟</a>
+                            </h3>
+                            <div class="post-card-excerpt">
+                                <p>تحلیل‌های روانشناسی رنگ و کنتراست ارگونومیک نشان می‌دهند قالب‌های روشن با پس‌زمینه تمیز باعث افزایش زمان ماندگاری کاربر می‌شوند...</p>
+                            </div>
+                            <div class="post-card-footer">
+                                <div class="post-author"><span>تیم شرکت هونا</span></div>
+                                <span class="read-more-link">مطالعه مقاله ←</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="post-card">
+                        <div class="post-thumbnail-wrap">
+                            <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg, #fef3c7 0%, #f1f5f9 100%);color:#d97706;">
+                                <svg width="42" height="42" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                            </div>
+                        </div>
+                        <div class="post-card-body">
+                            <div class="post-meta-top">
+                                <span class="post-category-tag" style="background:#fef3c7; color:#d97706;">تایپوگرافی</span>
+                                <span>۸ آبان ۱۴۰۳</span>
+                                <span class="meta-dot">•</span>
+                                <span>۵ دقیقه مطالعه</span>
+                            </div>
+                            <h3 class="post-card-title">
+                                <a href="#">اهمیت استفاده از فونت‌های محلی و استاندارد وزیرمتن در وب فارسی</a>
+                            </h3>
+                            <div class="post-card-excerpt">
+                                <p>چرا استفاده از CDNهای خارجی ریسک قطعی دارد و چگونه فونت‌های محلی woff2 سرعت بارگذاری صفحات را به اوج می‌رسانند...</p>
+                            </div>
+                            <div class="post-card-footer">
+                                <div class="post-author"><span>علی فیروزی</span></div>
+                                <span class="read-more-link">مطالعه مقاله ←</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CTA Banner -->
+        <section class="section" id="contact" style="padding-bottom: 2rem;">
+            <div class="container">
+                <div class="cta-banner">
+                    <h2 class="cta-title">آماده همکاری با شرکت هونا هستید؟</h2>
+                    <p class="cta-desc">پوسته بهار را همین حالا روی وب‌سایت خود نصب کنید یا برای طراحی اختصاصی با ما تماس بگیرید.</p>
+                    <div style="display:flex; justify-content:center; gap:1rem; flex-wrap:wrap;">
+                        <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+                            ارتباط با هونا (hoonaco.ir)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer" id="colophon">
+        <div class="container">
+            <div class="footer-widgets">
+                <div class="footer-widget footer-brand-widget">
+                    <h4 class="footer-widget-title">پوسته بهار • شرکت هونا</h4>
+                    <p>پوسته حرفه‌ای و امن بهار؛ طراحی و پیاده‌سازی شده با معماری مدرن و بهینه توسط شرکت هونا (hoonaco.ir) برای کسب‌وکارهای پیشرو.</p>
+                </div>
+
+                <div class="footer-widget">
+                    <h4 class="footer-widget-title">دسترسی سریع</h4>
+                    <ul>
+                        <li><a href="#">صفحه اصلی</a></li>
+                        <li><a href="#features">امکانات و خدمات</a></li>
+                        <li><a href="#about">درباره ما</a></li>
+                        <li><a href="#pricing">تعرفه‌ها</a></li>
+                        <li><a href="#faq">سوالات متداول</a></li>
+                        <li><a href="#blog">آخرین مقالات</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-widget">
+                    <h4 class="footer-widget-title">پشتیبانی و امنیت</h4>
+                    <ul>
+                        <li><a href="#">گواهینامه امنیت و استانداردهای کد</a></li>
+                        <li><a href="#">راهنمای سفارشی‌سازی قالب</a></li>
+                        <li><a href="#">پرسش‌های متداول (FAQ)</a></li>
+                        <li><a href="#">حریم خصوصی و شرایط استفاده</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-widget">
+                    <h4 class="footer-widget-title">ارتباط با هونا</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">
+                        طراح و برنامه‌نویس: علی فیروزی<br>
+                        وب‌سایت: hoonaco.ir<br>
+                        <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" style="display:inline-block; margin-top:0.5rem; color:var(--color-primary); font-weight:600;">
+                            مشاهده وب‌سایت رسمی هونا ←
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>تمامی حقوق محفوظ است © ۲۰۲۶ | طراح و برنامه‌نویس: علی فیروزی - شرکت هونا (hoonaco.ir)</p>
+                <div class="footer-credit">
+                    <span>طراح و برنامه‌نویس: <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" style="font-weight:700; color:var(--text-main);">علی فیروزی</a></span>
+                    <span style="margin: 0 6px; color:var(--text-muted);">|</span>
+                    <span>شرکت <a href="https://hoonaco.ir" target="_blank" rel="noopener noreferrer" style="color:var(--color-primary); font-weight:700;">هونا (hoonaco.ir)</a></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Scroll to top -->
+    <button class="scroll-to-top" aria-label="بازگشت به ابتدای صفحه">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
+
+    <!-- Theme JS -->
+    <script src="bahar/assets/js/main.js"></script>
+</body>
+</html>

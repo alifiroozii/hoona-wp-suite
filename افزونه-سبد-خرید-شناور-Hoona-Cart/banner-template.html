@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('hoona-cart/assets/fonts/Vazirmatn-Bold.woff2') format('woff2');
+            font-weight: 700;
+        }
+        @font-face {
+            font-family: 'Vazirmatn';
+            src: url('hoona-cart/assets/fonts/Vazirmatn-Regular.woff2') format('woff2');
+            font-weight: 400;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            width: 1200px;
+            height: 630px;
+            overflow: hidden;
+            background: #061e14;
+            font-family: 'Vazirmatn', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 70px;
+            position: relative;
+            color: #ffffff;
+        }
+        .glow-emerald {
+            position: absolute;
+            width: 480px;
+            height: 480px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.28) 0%, transparent 70%);
+            top: -100px;
+            right: 120px;
+            filter: blur(50px);
+        }
+        .glow-teal {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.25) 0%, transparent 70%);
+            bottom: -100px;
+            left: -50px;
+            filter: blur(50px);
+        }
+        .content-side {
+            width: 590px;
+            z-index: 10;
+        }
+        .top-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            padding: 8px 18px;
+            border-radius: 9999px;
+            color: #6ee7b7;
+            font-size: 13.5px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .main-title {
+            font-size: 44px;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 16px;
+        }
+        .main-title span {
+            background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: #94a3b8;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+        .features-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 34px;
+        }
+        .feat-pill {
+            background: rgba(6, 78, 59, 0.4);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .author-box {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding-top: 18px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .author-avatar {
+            width: 46px;
+            height: 46px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            font-size: 22px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        .author-info h4 { font-size: 14.5px; color: #f8fafc; margin-bottom: 2px; }
+        .author-info p { font-size: 12.5px; color: #94a3b8; margin: 0; }
+        .author-info strong { color: #34d399; }
+
+        /* ماک‌آپ کارت کشوی سبد خرید */
+        .preview-side {
+            width: 440px;
+            z-index: 10;
+        }
+        .mockup-card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.8), 0 0 40px rgba(16, 185, 129, 0.3);
+            padding: 24px;
+            color: #0f172a;
+            transform: rotate(2deg);
+        }
+        .mockup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
+            margin-bottom: 14px;
+        }
+        .mockup-header h5 { font-size: 16px; font-weight: 800; display:flex; align-items:center; gap:6px; margin:0; }
+        .shipping-pill-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 14px;
+        }
+        .shipping-msg { font-size: 12px; color: #166534; font-weight: 700; margin-bottom: 6px; }
+        .bar-track { width: 100%; height: 6px; background: #dcfce7; border-radius: 6px; overflow: hidden; }
+        .bar-fill { width: 75%; height: 100%; background: #10b981; }
+        .cart-item-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+        .item-emoji { width: 44px; height: 44px; background: #f8fafc; border-radius: 8px; display:flex; align-items:center; justify-content:center; font-size:20px; }
+        .item-text { flex: 1; }
+        .item-text h6 { margin: 0 0 2px; font-size: 13px; font-weight: 800; }
+        .item-text span { font-size: 12px; color: #059669; font-weight: 700; }
+        .mockup-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+            padding: 13px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 800;
+            box-shadow: 0 6px 14px -3px rgba(16, 185, 129, 0.4);
+            margin-top: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="glow-emerald"></div>
+    <div class="glow-teal"></div>
+
+    <div class="content-side">
+        <div class="top-badge">
+            🚀 افزایش چشمگیر فروش و نرخ تبدیل ووکامرس
+        </div>
+        <h1 class="main-title">
+            افزونه سبد خرید شناور <span>«هونا کارت» (Hoona Cart)</span>
+        </h1>
+        <p class="subtitle">
+            کشوی هوشمند سبد خرید بدون رفرش با نوار پیشرفت ارسال رایگان تعاملی، اعمال کد تخفیف با ایجکس داخل کشو، و دکمه پرداخت سریع تک‌مرحله‌ای؛ بدون لایسنس پولی و فوق‌العاده سبک.
+        </p>
+        <div class="features-row">
+            <div class="feat-pill">🚚 نوار ارسال رایگان</div>
+            <div class="feat-pill">⚡ تغییر تعداد کالا با Ajax</div>
+            <div class="feat-pill">🏷️ اعمال کد تخفیف در کشو</div>
+            <div class="feat-pill">🛍️ تسویه‌حساب تک‌مرحله‌ای</div>
+        </div>
+        <div class="author-box">
+            <div class="author-avatar">هـ</div>
+            <div class="author-info">
+                <h4>طراحی و توسعه: <strong>مهندس علی فیروزی</strong></h4>
+                <p>توسعه‌یافته در استودیو نرم‌افزار شرکت هونا — <strong>hoonaco.ir</strong></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="preview-side">
+        <div class="mockup-card">
+            <div class="mockup-header">
+                <h5>🛒 سبد خرید شما (۲ کالا)</h5>
+                <span style="font-size: 12px; color:#64748b; font-weight:700;">بستن ✕</span>
+            </div>
+            <div class="shipping-pill-box">
+                <div class="shipping-msg">تنها ۷۵,۰۰۰ تومان تا <strong>ارسال رایگان</strong>!</div>
+                <div class="bar-track">
+                    <div class="bar-fill"></div>
+                </div>
+            </div>
+            <div class="cart-item-row">
+                <div class="item-emoji">🎧</div>
+                <div class="item-text">
+                    <h6>هدفون نویز کنسلینگ Pro</h6>
+                    <span>۲۵۰,۰۰۰ تومان × ۱</span>
+                </div>
+            </div>
+            <div class="cart-item-row">
+                <div class="item-emoji">⌚</div>
+                <div class="item-text">
+                    <h6>ساعت هوشمند اولترا</h6>
+                    <span>۱۷۵,۰۰۰ تومان × ۱</span>
+                </div>
+            </div>
+            <div class="mockup-btn">
+                تسویه‌حساب سریع و آنی
+            </div>
+        </div>
+    </div>
+</body>
+</html>

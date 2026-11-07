@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش پنل تنظیمات اختصاصی بهار (Bahar Admin Options)</title>
+    <link rel="stylesheet" href="bahar/assets/css/main.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', system-ui, sans-serif;
+            color: #1e293b;
+        }
+        .wp-topbar {
+            background: #1e293b;
+            color: #ffffff;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.25rem;
+            font-size: 0.8rem;
+        }
+        .wp-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: calc(100vh - 38px);
+        }
+        .wp-sidebar {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .wp-sidebar-item {
+            padding: 0.65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: #cbd5e1;
+        }
+        .wp-sidebar-item:hover, .wp-sidebar-item.active {
+            background: #1e293b;
+            color: #ffffff;
+        }
+        .wp-sidebar-item.special {
+            background: linear-gradient(90deg, #1d4ed8, #2563eb);
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .wp-main {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .bahar-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .tab-btn {
+            width: 100%;
+            text-align: right;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+        }
+        .tab-btn:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+        .tab-btn.active {
+            background: #eff6ff;
+            color: #2563eb;
+            font-weight: 700;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .option-row {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            align-items: center;
+        }
+        .option-row:last-child {
+            border-bottom: none;
+        }
+        .option-title {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #0f172a;
+        }
+        .option-desc {
+            font-size: 0.78rem;
+            color: #64748b;
+            margin-top: 2px;
+        }
+        .form-input {
+            padding: 0.5rem 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: inherit;
+            width: 100%;
+            max-width: 400px;
+        }
+        .btn-save {
+            background: #2563eb;
+            color: #ffffff;
+            border: none;
+            padding: 0.65rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+            font-family: inherit;
+        }
+        .btn-save:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fake WP Admin Top Bar -->
+    <div class="wp-topbar">
+        <div style="display:flex; align-items:center; gap:1.25rem;">
+            <span style="font-weight:700;">🌐 پیشخوان وردپرس</span>
+            <span>مشاهده سایت</span>
+            <span style="background:rgba(37,99,235,0.3); padding:2px 8px; border-radius:4px; font-size:0.75rem;">پوسته بهار اینترپرایز</span>
+        </div>
+        <div>
+            <span>سلام، علی فیروزی (مدیر کل)</span>
+        </div>
+    </div>
+
+    <div class="wp-layout">
+        
+        <!-- Fake WP Admin Sidebar -->
+        <div class="wp-sidebar">
+            <div class="wp-sidebar-item">📊 پیشخوان</div>
+            <div class="wp-sidebar-item">✍️ نوشته‌ها</div>
+            <div class="wp-sidebar-item">📁 رسانه</div>
+            <div class="wp-sidebar-item">📄 برگه‌ها</div>
+            <div class="wp-sidebar-item">💬 دیدگاه‌ها</div>
+            <div class="wp-sidebar-item">🎨 نمایش</div>
+            <div class="wp-sidebar-item">🔌 افزونه‌ها</div>
+            <div class="wp-sidebar-item special">⚡ تنظیمات بهار</div>
+            <div class="wp-sidebar-item">⚙️ تنظیمات عمومی</div>
+        </div>
+
+        <!-- Main Workspace -->
+        <div class="wp-main">
+
+            <!-- Banner -->
+            <div style="background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%); color: #ffffff; padding: 2rem 2.25rem; border-radius: 14px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 24px -4px rgba(37, 99, 235, 0.3);">
+                <div>
+                    <div style="background: rgba(255,255,255,0.2); display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem;">نسخه ۲.۰ فعال</div>
+                    <h1 style="color: #ffffff; font-size: 1.6rem; font-weight: 800; margin: 0 0 0.4rem 0;">مرکز مدیریت و تنظیمات پیشرفته پوسته بهار (Bahar)</h1>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0; font-size: 0.9rem;">شخصی‌سازی زنده تمام بخش‌های قالب، ماژول‌ها، امنیت و رنگ‌ها بدون نیاز به کدنویسی.</p>
+                </div>
+                <div style="text-align: left; background: rgba(255,255,255,0.12); padding: 0.85rem 1.25rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2);">
+                    <div style="font-size: 0.75rem; opacity: 0.85;">طراح و برنامه‌نویس:</div>
+                    <div style="font-weight: 800; font-size: 1rem;">علی فیروزی</div>
+                    <div style="font-size: 0.8rem; margin-top: 2px;"><a href="https://hoonaco.ir" target="_blank" style="color: #93c5fd; text-decoration: none; font-weight: 600;">شرکت هونا (hoonaco.ir) ↗</a></div>
+                </div>
+            </div>
+
+            <!-- Demo Part 1: Theme Options Panel -->
+            <div class="bahar-card" style="display: grid; grid-template-columns: 240px 1fr;">
+                
+                <!-- Left Nav Tabs -->
+                <div style="background: #f8fafc; border-left: 1px solid #e2e8f0; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                        <li><button type="button" class="tab-btn active" data-tab="tab-general">🎨 عمومی و رنگ‌ها</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-header">🧭 هدر و ناوبری</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-homepage">🏠 بخش‌های صفحه نخست</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-security">🛡️ امنیت و سرعت (OWASP)</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-blog">📰 وبلاگ و مقالات</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-footer">🦶 فوتر و کپی‌رایت</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-social">📱 شبکه‌های اجتماعی و تماس</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-custom">💻 کدهای سفارشی و ره‌گیری</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-backup">💾 خروجی و پشتیبان‌گیری</button></li>
+                    </ul>
+                    <div style="padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+                        <button type="button" class="btn-save" style="width: 100%;" onclick="alert('✓ تنظیمات پوسته بهار با موفقیت در دیتابیس وردپرس ذخیره شد!')">ذخیره تنظیمات</button>
+                    </div>
+                </div>
+
+                <!-- Right Content Panes -->
+                <div style="padding: 2rem;">
+                    
+                    <!-- TAB 1: General -->
+                    <div class="tab-pane active" id="tab-general">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">رنگ‌بندی و پالت برند</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">پالت رنگی اصلی سازمانی و حالت پیش‌فرض نمایش پوسته را تعیین کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">رنگ اصلی (Primary)</div>
+                                <div class="option-desc">رنگ دکمه‌ها، نشان‌ها و لینک‌ها</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem;">
+                                <input type="color" value="#2563eb" style="height:38px; width:54px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <span style="font-family:monospace; font-size:0.85rem; color:#475569;">#2563eb (آبی مدرن)</span>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">رنگ ثانویه (Secondary)</div>
+                                <div class="option-desc">رنگ افکت‌ها و گرادیان‌ها</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem;">
+                                <input type="color" value="#0d9488" style="height:38px; width:54px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <span style="font-family:monospace; font-size:0.85rem; color:#475569;">#0d9488 (فیروزه‌ای)</span>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">حالت پیش‌فرض پوسته</div>
+                                <div class="option-desc">تم آغازین برای کاربران جدید</div>
+                            </div>
+                            <div>
+                                <select class="form-input">
+                                    <option selected>حالت روشن (Clean Light - پیشنهادی)</option>
+                                    <option>حالت تیره (Dark Mode)</option>
+                                    <option>انطباق خودکار با سیستم‌عامل کاربر</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Header -->
+                    <div class="tab-pane" id="tab-header">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">تنظیمات هدر و دکمه اقدام</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">المان‌های نوار ناوبری بالای صفحه را کنترل کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">هدر چسبان هوشمند</div>
+                                <div class="option-desc">حفظ هدر بالای صفحه حین اسکرول</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><input type="checkbox" checked /> فعال‌سازی هدر چسبان با پس‌زمینه بلورین</label>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">جستجوی پاپ‌آپ ⌘K</div>
+                                <div class="option-desc">کلید میانبر و دکمه ذره‌بین</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><input type="checkbox" checked /> نمایش جستجوی زنده در هدر</label>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">دکمه اقدام هدر (CTA)</div>
+                                <div class="option-desc">متن و آدرس لینک دکمه</div>
+                            </div>
+                            <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                                <input type="text" value="شروع همکاری" class="form-input" placeholder="متن دکمه" />
+                                <input type="url" value="#contact" class="form-input" placeholder="نشانی اینترنتی" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Homepage -->
+                    <div class="tab-pane" id="tab-homepage">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">مدیریت بخش‌های صفحه اصلی</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">ماژول‌های مورد نظر خود را در صفحه اصلی فعال یا غیرفعال کنید.</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش هیرو (Hero Banner):</strong> تیتر جذاب، دکمه‌های اقدام و پیش‌نمایش گرافیکی</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش امکانات و خدمات (Features):</strong> ۶ کارت خدمات با آیکون‌های وکتور</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش نظرات مشتریان (Testimonials):</strong> دیدگاه‌های ۵ ستاره همراه با سمت شغلی</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش تعرفه‌ها و قیمت‌گذاری (Pricing Tables):</strong> ۳ پلن تعرفه با نشان پیشنهاد ویژه</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش سوالات متداول (FAQ Accordion):</strong> آکاردئون متحرک پاسخ به سوالات پرتکرار</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span><strong>بخش آخرین مقالات وبلاگ:</strong> نمایش ۳ نوشته اخیر با زمان مطالعه تخمینی</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: Security -->
+                    <div class="tab-pane" id="tab-security">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">امنیت و ضد نفوذ (OWASP Hardening)</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">لایه‌های دفاعی پوسته برای ایمن‌سازی وب‌سایت در برابر حملات سایبری.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">هدرهای امنیتی HTTP</div>
+                                <div class="option-desc">ضد کلیک‌جکینگ و ضد MIME Sniffing</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><input type="checkbox" checked /> تزریق خودکار X-Frame-Options: SAMEORIGIN و nosniff</label>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">مخفی‌سازی نسخه وردپرس</div>
+                                <div class="option-desc">حذف متاتگ و نگارش اسکریپت‌ها</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><input type="checkbox" checked /> پنهان‌سازی نگارش وردپرس از دید ربات‌های اسکنر آسیب‌پذیری</label>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">ضد کشف نام کاربری ادمین</div>
+                                <div class="option-desc">مسدودسازی ?author=1</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; font-size:0.85rem;"><input type="checkbox" checked /> جلوگیری از فاش شدن یوزرنیم مدیر در حملات بروت‌فورس</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: Blog -->
+                    <div class="tab-pane" id="tab-blog">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">تنظیمات مطالعه مقالات و وبلاگ</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">امکانات پیشرفته تجربه مطالعه برای افزایش نرخ ماندگاری کاربر.</p>
+
+                        <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span>نوار پیشرفت گرادیانی مطالعه در بالاترین لبه صفحه</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span>محاسبه خودکار مدت‌زمان خواندن هر مقاله به فارسی</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span>دکمه‌های اشتراک‌گذاری در تلگرام، واتساپ، X و کپی آسان لینک</span>
+                            </label>
+                            <label style="display:flex; align-items:center; gap:0.75rem; background:#f8fafc; padding:0.85rem 1rem; border-radius:8px; border:1px solid #e2e8f0; font-size:0.9rem;">
+                                <input type="checkbox" checked />
+                                <span>پیشنهاد هوشمند ۳ نوشته مرتبط بر اساس دسته‌بندی مشترک</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6: Footer -->
+                    <div class="tab-pane" id="tab-footer">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">تنظیمات فوتر و مشخصات برند</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">اطلاعات شرکت، متن کپی‌رایت و دسترسی‌ها را مدیریت فرمایید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">متن معرفی در فوتر</div>
+                                <div class="option-desc">توضیح کوتاه درباره شرکت هونا</div>
+                            </div>
+                            <div>
+                                <textarea rows="3" class="form-input" style="max-width:100%;">پوسته حرفه‌ای و امن بهار؛ طراحی و پیاده‌سازی شده با معماری مدرن و بهینه توسط شرکت هونا (hoonaco.ir) برای کسب‌وکارهای نوآور.</textarea>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">متن کپی‌رایت انتهای سایت</div>
+                                <div class="option-desc">حق نشر و شناسنامه طراح</div>
+                            </div>
+                            <div>
+                                <input type="text" value="تمامی حقوق محفوظ است © ۲۰۲۶ | طراح و برنامه‌نویس: علی فیروزی - شرکت هونا (hoonaco.ir)" class="form-input" style="max-width:100%;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 7: Social -->
+                    <div class="tab-pane" id="tab-social">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">شبکه‌های اجتماعی و راه‌های ارتباطی</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">لینک حساب‌های رسمی را برای نمایش هوشمند در هدر، فوتر و منوی موبایل تعیین کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">کانال یا آیدی تلگرام</div>
+                                <div class="option-desc">نمایش آیکون تلگرام</div>
+                            </div>
+                            <div>
+                                <input type="url" value="https://t.me/hoonaco" class="form-input" style="direction:ltr; text-align:left;" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">صفحه رسمی اینستاگرام</div>
+                                <div class="option-desc">نمایش آیکون اینستاگرام</div>
+                            </div>
+                            <div>
+                                <input type="url" value="https://instagram.com/hoonaco" class="form-input" style="direction:ltr; text-align:left;" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">صفحه لینکدین شرکت</div>
+                                <div class="option-desc">نمایش آیکون لینکدین</div>
+                            </div>
+                            <div>
+                                <input type="url" value="https://linkedin.com/company/hoonaco" class="form-input" style="direction:ltr; text-align:left;" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">تلفن پشتیبانی و مشاوره</div>
+                                <div class="option-desc">جهت تماس سریع کاربران</div>
+                            </div>
+                            <div>
+                                <input type="text" value="۰۲۱-۸۸۸۸۸۸۸۸" class="form-input" style="direction:ltr; text-align:right;" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 8: Custom Code -->
+                    <div class="tab-pane" id="tab-custom">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">کدهای سفارشی CSS و اسکریپت‌های ره‌گیری</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">بدون نیاز به Child Theme، کدهای اختصاصی خود را به سایت تزریق کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">کدهای CSS اختصاصی</div>
+                                <div class="option-desc">اعمال آنی روی تمامی صفحات سایت</div>
+                            </div>
+                            <div>
+                                <textarea rows="4" class="form-input" style="direction:ltr; text-align:left; font-family:monospace; font-size:0.8rem;">/* استایل‌های اختصاصی شما */
+.hero-title { letter-spacing: -1px; }</textarea>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">اسکریپت‌های سربرگ (&lt;head&gt;)</div>
+                                <div class="option-desc">گوگل آنالیتیکس یا تگ منیجر</div>
+                            </div>
+                            <div>
+                                <textarea rows="3" class="form-input" style="direction:ltr; text-align:left; font-family:monospace; font-size:0.8rem;">&lt;!-- Google tag (gtag.js) --&gt;</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 9: Backup -->
+                    <div class="tab-pane" id="tab-backup">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">پشتیبان‌گیری و خروجی JSON تنظیمات</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">انتقال ساده کل پیکربندی به سایر سایت‌های وردپرسی تنها با کپی کردن کد JSON.</p>
+
+                        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
+                            <div style="font-weight:700; font-size:0.85rem; margin-bottom:0.5rem;">کد پیکربندی زنده قالب:</div>
+                            <textarea readonly rows="6" class="form-input" style="direction:ltr; text-align:left; font-family:monospace; font-size:0.75rem; width:100%; max-width:100%;">{"color_primary":"#2563eb","color_secondary":"#0d9488","default_theme":"light","sticky_header":1,"show_search":1,"show_theme_toggle":1,"show_header_cta":1,"enable_sec_headers":1,"hide_wp_version":1,"block_user_enum":1,"author":"Ali Firoozi","company":"hoonaco.ir"}</textarea>
+                            <div style="margin-top:0.75rem;">
+                                <button type="button" class="btn-save" style="padding:0.4rem 1rem; font-size:0.8rem;" onclick="alert('کد تنظیمات کپی شد!')">📋 کپی کردن کد JSON</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Demo Part 2: Per-Page Meta Box Showcase -->
+            <div style="margin-top: 3rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div>
+                        <h2 style="font-size: 1.4rem; font-weight: 800; color: #0f172a; margin: 0 0 0.25rem 0;">بخش دوم: کادر تنظیمات اختصاصی هر برگه (Per-Page Options)</h2>
+                        <p style="color: #64748b; font-size: 0.85rem; margin: 0;">این کادر در صفحه ویرایش تک‌تک برگه‌ها و نوشته‌های سایت ظاهر می‌شود تا چیدمان همان صفحه را مستقل کنترل کنید:</p>
+                    </div>
+                    <span style="background: #dcfce7; color: #15803d; font-weight: 700; padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;">✓ فعال در هر برگه</span>
+                </div>
+
+                <div class="bahar-card" style="padding: 1.75rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid #e2e8f0; margin-bottom:1.5rem;">
+                        <span style="font-weight:800; font-size:1.05rem; color:#0f172a;">⚙️ تنظیمات اختصاصی این برگه (Bahar Page Options)</span>
+                        <span style="font-size:0.8rem; color:#64748b;">برگه نمونه: «درباره ما / لندینگ معرفی»</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+                        
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">📐 ساختار چیدمان (Layout)</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>تمام‌عرض کامل (Full Width - بدون سایدبار)</option>
+                                <option>پیش‌فرض قالب (همراه با کانتینر)</option>
+                                <option>با سایدبار سمت راست</option>
+                                <option>با سایدبار سمت چپ</option>
+                                <option>عرض متنی فشرده (مخصوص مطالعه)</option>
+                            </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">تعیین چیدمان محتوای همین صفحه مستقل از سایر صفحات.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">✨ وضعیت هدر در این برگه</div>
+                            <select class="form-input" style="width:100%;">
+                                <option selected>هدر شفاف و شیشه‌ای (Transparent)</option>
+                                <option>هدر استاندارد پیش‌فرض</option>
+                                <option>مخفی کردن کامل هدر (بدون هدر)</option>
+                            </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">مناسب برای صفحات فرود و اسلایدرهای تمام‌صفحه.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🏷️ عنوان برگه و بنر سربرگ</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>نمایش بنر سربرگ عریض با گرادیان</option>
+                                <option>عدم نمایش عنوان (مخصوص لندینگ و المنتور)</option>
+                                <option>نمایش عنوان ساده در بالای متن</option>
+                            </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">جلوگیری از مزاحمت عنوان پیش‌فرض در طراحی لندینگ‌ها.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">📝 زیرعنوان بنر سربرگ</div>
+                            <input type="text" value="آشنایی با داستان، رسالت و تیم متخصص شرکت هونا" class="form-input" style="width:100%;" />
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">متن توضیحی تکمیلی که زیر تیتر اصلی بنر ظاهر می‌شود.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🎨 رنگ شاخص اختصاصی این برگه</div>
+                            <div style="display:flex; align-items:center; gap:0.5rem;">
+                                <input type="color" value="#0d9488" style="height:38px; width:46px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <input type="text" value="#0d9488" class="form-input" style="flex:1;" />
+                            </div>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">شخصی‌سازی رنگ دکمه‌ها و لینک‌های این صفحه خاص.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🧭 مسیر راهنما (Breadcrumbs)</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>نمایش مسیر راهنما (پیش‌فرض)</option>
+                                <option>مخفی کردن در این صفحه</option>
+                            </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">کنترل نمایش یا پنهان‌سازی لینک‌های موقعیت صفحه.</div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🦶 وضعیت فوتر در این برگه</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>مخفی کردن کامل فوتر (صفحه فرود و قیف فروش)</option>
+                                <option selected>نمایش فوتر کامل سایت</option>
+                            </select>
+                            <div style="font-size:0.75rem; color:#64748b; margin-top:0.4rem;">حذف کامل فوتر برای حفظ تمرکز کاربر روی خرید یا ثبت‌نام.</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const target = this.getAttribute('data-tab');
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    const activePane = document.getElementById(target);
+                    if (activePane) activePane.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

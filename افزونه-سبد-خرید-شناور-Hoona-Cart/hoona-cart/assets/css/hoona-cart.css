@@ -1,0 +1,395 @@
+/**
+ * استایل‌های سبد خرید شناور و کشویی هونا
+ */
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Vazirmatn';
+    src: url('../fonts/Vazirmatn-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* دکمه شناور پرتابل سبد خرید */
+.hoona-floating-cart {
+    position: fixed;
+    bottom: 28px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99990;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.hoona-floating-cart.bottom-right { right: 28px; }
+.hoona-floating-cart.bottom-left  { left: 28px; }
+
+.hoona-floating-cart:hover {
+    transform: scale(1.08) translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(16, 185, 129, 0.6);
+}
+
+.hoona-badge-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 800;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    font-family: 'Vazirmatn', sans-serif;
+    border: 2px solid #ffffff;
+}
+
+/* پس‌زمینه تیره و بلور شده */
+.hoona-drawer-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 999998;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.hoona-drawer-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* پنل کشویی دراور */
+.hoona-slide-cart {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 420px;
+    background: #ffffff;
+    z-index: 999999;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, sans-serif;
+    direction: rtl;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-sizing: border-box;
+}
+
+.hoona-slide-cart.right {
+    right: 0;
+    transform: translateX(100%);
+}
+
+.hoona-slide-cart.left {
+    left: 0;
+    transform: translateX(-100%);
+}
+
+.hoona-slide-cart.active {
+    transform: translateX(0);
+}
+
+/* هدر کشو */
+.hoona-cart-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.hoona-header-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #0f172a;
+}
+
+.hoona-header-title h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.hoona-close-btn {
+    background: #f8fafc;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    color: #64748b;
+    font-size: 22px;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.hoona-close-btn:hover {
+    background: #fee2e2;
+    color: #ef4444;
+}
+
+/* نوار ارسال رایگان */
+.hoona-shipping-bar-container {
+    background: #f8fafc;
+    padding: 14px 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.hoona-shipping-text {
+    font-size: 13px;
+    color: #334155;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.hoona-progress-track {
+    width: 100%;
+    height: 7px;
+    background: #e2e8f0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hoona-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #34d399 100%);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+/* لیست اقلام */
+.hoona-cart-items-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px 24px;
+}
+
+.hoona-cart-item {
+    display: flex;
+    gap: 14px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    align-items: center;
+}
+
+.hoona-item-thumb {
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+
+.hoona-item-details {
+    flex: 1;
+}
+
+.hoona-item-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 6px;
+    text-decoration: none;
+    display: block;
+    line-height: 1.4;
+}
+
+.hoona-item-price {
+    font-size: 13px;
+    color: #059669;
+    font-weight: 700;
+}
+
+.hoona-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.hoona-qty-box {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.hoona-qty-btn {
+    background: #f8fafc;
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #475569;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+}
+
+.hoona-qty-btn:hover { background: #e2e8f0; }
+
+.hoona-qty-val {
+    width: 32px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.hoona-remove-btn {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    padding: 4px;
+    transition: color 0.15s;
+}
+
+.hoona-remove-btn:hover { color: #ef4444; }
+
+.hoona-empty-cart {
+    text-align: center;
+    padding: 60px 20px;
+    color: #94a3b8;
+}
+.hoona-empty-icon { font-size: 48px; margin-bottom: 12px; }
+
+/* فوتر کشو */
+.hoona-cart-footer {
+    padding: 20px 24px;
+    border-top: 1px solid #f1f5f9;
+    background: #ffffff;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.02);
+}
+
+.hoona-coupon-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.hoona-coupon-row input {
+    flex: 1;
+    height: 40px;
+    padding: 0 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 13px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.hoona-coupon-row input:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.hoona-coupon-row button {
+    background: #1e293b;
+    color: #fff;
+    border: none;
+    padding: 0 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+}
+
+.hoona-coupon-row button:hover { background: #0f172a; }
+
+.hoona-coupon-msg {
+    font-size: 12px;
+    margin-bottom: 10px;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+.hoona-coupon-msg.error { background: #fef2f2; color: #dc2626; }
+.hoona-coupon-msg.success { background: #f0fdf4; color: #16a34a; }
+
+.hoona-summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 15px;
+    color: #334155;
+    margin-bottom: 16px;
+}
+
+.hoona-summary-row strong {
+    font-size: 18px;
+    font-weight: 800;
+    color: #0f172a;
+}
+
+.hoona-btn-checkout-primary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 48px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 800;
+    box-shadow: 0 8px 16px -4px rgba(16, 185, 129, 0.4);
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.hoona-btn-checkout-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 20px -4px rgba(16, 185, 129, 0.5);
+}
+
+.hoona-cart-branding {
+    text-align: center;
+    font-size: 11.5px;
+    color: #94a3b8;
+    margin-top: 14px;
+}
+.hoona-cart-branding a { color: #10b981; text-decoration: none; font-weight: 600; }

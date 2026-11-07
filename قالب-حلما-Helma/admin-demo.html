@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پیش‌نمایش پنل تنظیمات پوسته حلما (Helma Admin Dashboard)</title>
+    <link rel="stylesheet" href="helma/assets/css/main.css">
+    <style>
+        body {
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', system-ui, sans-serif;
+            color: #1e293b;
+        }
+        .wp-topbar {
+            background: #1e293b;
+            color: #ffffff;
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 1.25rem;
+            font-size: 0.8rem;
+        }
+        .wp-layout {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            min-height: calc(100vh - 38px);
+        }
+        .wp-sidebar {
+            background: #0f172a;
+            color: #94a3b8;
+            padding: 1rem 0;
+            font-size: 0.85rem;
+        }
+        .wp-sidebar-item {
+            padding: 0.65rem 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.65rem;
+            cursor: pointer;
+            transition: all 0.15s;
+            color: #cbd5e1;
+        }
+        .wp-sidebar-item:hover, .wp-sidebar-item.active {
+            background: #1e293b;
+            color: #ffffff;
+        }
+        .wp-sidebar-item.special {
+            background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+            color: #ffffff;
+            font-weight: 700;
+        }
+        .wp-main {
+            padding: 2rem;
+            overflow-y: auto;
+        }
+        .helma-admin-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        .tab-btn {
+            width: 100%;
+            text-align: right;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: none;
+            background: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: #475569;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            font-family: inherit;
+        }
+        .tab-btn:hover {
+            background-color: #f8fafc;
+            color: #0f172a;
+        }
+        .tab-btn.active {
+            background-color: #f5f3ff;
+            color: #7c3aed;
+            font-weight: 700;
+            border-right: 3px solid #7c3aed;
+        }
+        .tab-pane {
+            display: none;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .option-row {
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        .option-row:last-child {
+            border-bottom: none;
+        }
+        .option-title {
+            font-weight: 700;
+            color: #0f172a;
+            font-size: 0.92rem;
+            margin-bottom: 0.25rem;
+        }
+        .option-desc {
+            color: #64748b;
+            font-size: 0.78rem;
+            line-height: 1.5;
+        }
+        .form-input {
+            width: 100%;
+            max-width: 480px;
+            padding: 0.55rem 0.85rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-family: inherit;
+        }
+        .btn-save {
+            background: #7c3aed;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.65rem 1.75rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-save:hover {
+            background: #6d28d9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Fake WP Admin Top Bar -->
+    <div class="wp-topbar">
+        <div style="display:flex; align-items:center; gap:1.25rem;">
+            <span style="font-weight:700;">🌐 پیشخوان وردپرس</span>
+            <a href="preview.html" target="_blank" style="color:#ffffff; text-decoration:none;">مشاهده سایت ↗</a>
+            <span style="background:rgba(139,92,246,0.3); padding:2px 8px; border-radius:4px; font-size:0.75rem; color:#c4b5fd;">پوسته حلما (Helma AI & SaaS)</span>
+        </div>
+        <div>
+            <span>سلام، علی فیروزی (مدیر کل سیستم)</span>
+        </div>
+    </div>
+
+    <div class="wp-layout">
+        
+        <!-- Fake WP Admin Sidebar -->
+        <div class="wp-sidebar">
+            <div class="wp-sidebar-item">📊 پیشخوان</div>
+            <div class="wp-sidebar-item">✍️ نوشته‌ها</div>
+            <div class="wp-sidebar-item">📁 رسانه</div>
+            <div class="wp-sidebar-item">📄 برگه‌ها</div>
+            <div class="wp-sidebar-item">💬 دیدگاه‌ها</div>
+            <div class="wp-sidebar-item">🎨 نمایش</div>
+            <div class="wp-sidebar-item">🔌 افزونه‌ها</div>
+            <div class="wp-sidebar-item special">⚡ تنظیمات حلما</div>
+            <div class="wp-sidebar-item">⚙️ تنظیمات عمومی</div>
+        </div>
+
+        <!-- Main Workspace -->
+        <div class="wp-main">
+
+            <!-- Banner -->
+            <div style="background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%); border: 1px solid rgba(139, 92, 246, 0.35); color: #ffffff; padding: 2rem 2.25rem; border-radius: 14px; margin-bottom: 2rem; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 8px 24px -4px rgba(139, 92, 246, 0.25);">
+                <div>
+                    <div style="background: rgba(139,92,246,0.2); border: 1px solid rgba(139,92,246,0.4); color: #c4b5fd; display: inline-block; padding: 3px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 700; margin-bottom: 0.5rem;">نسخه ۱.۰ فعال</div>
+                    <h1 style="color: #ffffff; font-size: 1.6rem; font-weight: 800; margin: 0 0 0.4rem 0;">مرکز مدیریت و تنظیمات پوسته حلما (Helma)</h1>
+                    <p style="color: rgba(255,255,255,0.85); margin: 0; font-size: 0.9rem;">شخصی‌سازی زنده نورپردازی نئونی، هدر شیشه‌ای، شبیه‌ساز AI، قیمت‌ها و امنیت سازمانی.</p>
+                </div>
+                <div style="text-align: left; background: rgba(255,255,255,0.06); padding: 0.85rem 1.4rem; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12);">
+                    <div style="font-size: 0.75rem; color: #94a3b8;">طراح و برنامه‌نویس:</div>
+                    <div style="font-weight: 800; font-size: 1rem; color: #ffffff;">علی فیروزی</div>
+                    <div style="font-size: 0.8rem; margin-top: 2px;"><a href="https://hoonaco.ir" target="_blank" style="color: #a78bfa; text-decoration: none; font-weight: 600;">شرکت هونا (hoonaco.ir) ↗</a></div>
+                </div>
+            </div>
+
+            <!-- Tabbed Options Card -->
+            <div class="helma-admin-card" style="display: grid; grid-template-columns: 250px 1fr;">
+                
+                <!-- Left Nav Tabs -->
+                <div style="background: #f8fafc; border-left: 1px solid #e2e8f0; padding: 1rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.35rem;">
+                        <li><button type="button" class="tab-btn active" data-tab="tab-colors">🔮 نورپردازی و رنگ‌های نئونی</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-header">🧭 هدر و وضعیت زنده</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-homepage">🏠 بخش‌های صفحه نخست</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-simulator">🤖 شبیه‌ساز هوش مصنوعی</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-pricing">💎 موتور قیمت‌گذاری پلن‌ها</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-security">🛡️ فایروال و امنیت OWASP</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-custom">💻 کدهای سفارشی CSS / JS</button></li>
+                        <li><button type="button" class="tab-btn" data-tab="tab-backup">💾 خروجی و پشتیبان‌گیری JSON</button></li>
+                    </ul>
+                    <div style="padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+                        <button type="button" class="btn-save" style="width: 100%;" onclick="alert('✓ تنظیمات پوسته حلما با موفقیت در دیتابیس وردپرس ذخیره شد!')">ذخیره تنظیمات</button>
+                    </div>
+                </div>
+
+                <!-- Right Content Panes -->
+                <div style="padding: 2rem;">
+                    
+                    <!-- TAB 1: Colors & Glow -->
+                    <div class="tab-pane active" id="tab-colors">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">نورپردازی نئونی و پالت رنگی</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">رنگ درخشش هیرو، حاشیه‌های شیشه‌ای و تم پیش‌فرض را تعیین کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">رنگ درخشش اصلی (Neon Glow)</div>
+                                <div class="option-desc">رنگ نور دکمه‌های اصلی و کارت ویژه</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem;">
+                                <input type="color" value="#8b5cf6" style="height:38px; width:50px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <input type="text" value="#8b5cf6" class="form-input" style="max-width:120px;" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">رنگ درخشش ثانویه (Cyber Cyan)</div>
+                                <div class="option-desc">رنگ دوم گرادیان‌ها و آیکون‌ها</div>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:0.75rem;">
+                                <input type="color" value="#06b6d4" style="height:38px; width:50px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <input type="text" value="#06b6d4" class="form-input" style="max-width:120px;" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">حالت نمایش پیش‌فرض</div>
+                                <div class="option-desc">تم آغازین برای کاربران جدید</div>
+                            </div>
+                            <div>
+                                <select class="form-input">
+                                    <option selected>حالت دارک عمیق (Deep Dark - پیش‌فرض و پیشنهاد هونا)</option>
+                                    <option>حالت لایت سایبرنتیک (Cyber Light)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 2: Header -->
+                    <div class="tab-pane" id="tab-header">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">هدر شناور و نشانگر زنده</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">نشانگر سبز تپنده بالای هدر و دکمه‌های اقدام را کنترل کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">نشانگر زنده وضعیت (Live Status)</div>
+                                <div class="option-desc">نمایش نشانگر سبز تپنده در هدر</div>
+                            </div>
+                            <div>
+                                <label style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+                                    <input type="checkbox" checked /> فعال بودن نشانگر در هدر
+                                </label>
+                                <input type="text" value="🟢 تمامی مدل‌های هوش مصنوعی فعال است | نسخه ۳.۰" class="form-input" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">دکمه اقدام سریع (Header CTA)</div>
+                                <div class="option-desc">متن و لینک دکمه کال‌تو‌اکشن هدر</div>
+                            </div>
+                            <div>
+                                <input type="text" value="شروع آزمایش رایگان" class="form-input" style="margin-bottom:0.5rem;" /><br>
+                                <input type="url" value="#pricing" class="form-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Homepage -->
+                    <div class="tab-pane" id="tab-homepage">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">مدیریت بخش‌های صفحه نخست</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">سکشن‌های صفحه اول را با یک کلیک فعال یا غیرفعال کنید.</p>
+
+                        <div class="option-row">
+                            <div><div class="option-title">شبیه‌ساز هوش مصنوعی در هیرو</div></div>
+                            <div><label><input type="checkbox" checked /> فعال بودن کادر تست پرامپت زنده</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">کارت‌های بنتو گرید ۲.۰</div></div>
+                            <div><label><input type="checkbox" checked /> فعال بودن شبکه نامتقارن امکانات</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">ویترین تب‌های نرم‌افزار</div></div>
+                            <div><label><input type="checkbox" checked /> فعال بودن معرفی محیط کاربری اپ</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">ماتریس قیمت‌گذاری و تعرفه‌ها</div></div>
+                            <div><label><input type="checkbox" checked /> فعال بودن جدول تعرفه‌ها با سوئیچر تخفیف</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">دیوار رضایت متخصصان (Testimonials)</div></div>
+                            <div><label><input type="checkbox" checked /> فعال بودن کارت‌های رضایت با ستاره</label></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: Simulator -->
+                    <div class="tab-pane" id="tab-simulator">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">شبیه‌ساز پرامپت هوش مصنوعی در هیرو</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">مشخصات مدل و متن‌های راهنمای کادر تعاملی هیرو را تنظیم کنید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">عنوان مدل هوش مصنوعی</div>
+                                <div class="option-desc">برچسب بالای پنجره شبیه‌ساز</div>
+                            </div>
+                            <div>
+                                <input type="text" value="Helma-Ultra-3.0" class="form-input" />
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">متن راهنمای ورودی</div>
+                                <div class="option-desc">Placeholder کادر دستور</div>
+                            </div>
+                            <div>
+                                <input type="text" value="یک دستور بنویسید (مثلاً: استراتژی بازاریابی، کد پایتون یا گزارش مالی)..." class="form-input" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: Pricing -->
+                    <div class="tab-pane" id="tab-pricing">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">موتور مدیریت مبالغ پلن‌های تعرفه</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">مبالغ ماهانه و سالانه هر ۳ پلن را بدون نیاز به کدنویسی تغییر دهید.</p>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">پلن استارتر (Starter)</div>
+                                <div class="option-desc">توسعه‌دهندگان مستقل</div>
+                            </div>
+                            <div style="display:flex; gap:1rem; align-items:center;">
+                                <span>ماهانه: <input type="text" value="۴۹۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                                <span>سالانه: <input type="text" value="۳۹۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">پلن حرفه‌ای (Pro Business)</div>
+                                <div class="option-desc">پیشنهاد ویژه هونا</div>
+                            </div>
+                            <div style="display:flex; gap:1rem; align-items:center;">
+                                <span>ماهانه: <input type="text" value="۱,۴۹۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                                <span>سالانه: <input type="text" value="۱,۱۹۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                            </div>
+                        </div>
+
+                        <div class="option-row">
+                            <div>
+                                <div class="option-title">پلن سازمانی (Enterprise)</div>
+                                <div class="option-desc">کسب‌وکارهای بزرگ</div>
+                            </div>
+                            <div style="display:flex; gap:1rem; align-items:center;">
+                                <span>ماهانه: <input type="text" value="۳,۹۰۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                                <span>سالانه: <input type="text" value="۳,۱۲۰,۰۰۰" class="form-input" style="max-width:120px;" /> ت</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6: Security -->
+                    <div class="tab-pane" id="tab-security">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">امنیت سازمانی و استانداردهای OWASP</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">سپرهای حفاظتی توکار پوسته حلما در برابر انواع حملات.</p>
+
+                        <div class="option-row">
+                            <div><div class="option-title">هدرهای حفاظتی HTTP</div></div>
+                            <div><label><input type="checkbox" checked /> تزریق هدرهای X-Frame-Options و X-Content-Type-Options</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">مخفی‌سازی نگارش وردپرس</div></div>
+                            <div><label><input type="checkbox" checked /> حذف تگ‌های شناسایی نسخه وردپرس</label></div>
+                        </div>
+                        <div class="option-row">
+                            <div><div class="option-title">ضد اسکن نام کاربری</div></div>
+                            <div><label><input type="checkbox" checked /> مسدودسازی درخواست‌های (?author=1)</label></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 7: Custom Code -->
+                    <div class="tab-pane" id="tab-custom">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">کدهای سفارشی و ره‌گیری</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">تزریق کدهای CSS و اسکریپت‌های ره‌گیری گوگل آنالیتیکس یا تگ منیجر.</p>
+
+                        <div class="option-row">
+                            <div><div class="option-title">کدهای CSS اختصاصی</div></div>
+                            <div><textarea rows="4" class="form-input" style="direction:ltr; text-align:left; font-family:monospace;">/* کدهای استایل اختصاصی شما */</textarea></div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 8: Backup -->
+                    <div class="tab-pane" id="tab-backup">
+                        <h2 style="font-size: 1.25rem; font-weight: 800; margin: 0 0 0.35rem 0;">پشتیبان‌گیری و خروجی JSON</h2>
+                        <p style="font-size: 0.85rem; color: #64748b; margin: 0 0 1.5rem 0;">انتقال ساده کل پیکربندی پوسته حلما به سایر سایت‌های وردپرسی.</p>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <textarea readonly rows="6" class="form-input" style="direction:ltr; text-align:left; font-family:monospace; font-size:0.75rem; width:100%; max-width:100%;">{"theme":"helma","version":"1.0.0","glow_primary":"#8b5cf6","glow_secondary":"#06b6d4","default_theme":"dark","author":"Ali Firoozi","company":"hoonaco.ir"}</textarea>
+                            <div style="margin-top:0.75rem;">
+                                <button type="button" class="btn-save" style="padding:0.4rem 1rem; font-size:0.8rem;" onclick="alert('کد پیکربندی حلما با موفقیت کپی شد!')">📋 کپی کردن کد JSON</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Demo Part 2: Per-Page Meta Box Showcase -->
+            <div style="margin-top: 3rem;">
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
+                    <div>
+                        <h2 style="font-size: 1.4rem; font-weight: 800; color: #0f172a; margin: 0 0 0.25rem 0;">بخش دوم: کادر تنظیمات اختصاصی هر برگه (Helma Page Options)</h2>
+                        <p style="color: #64748b; font-size: 0.85rem; margin: 0;">این کادر در صفحه ویرایش تک‌تک برگه‌ها ظاهر می‌شود تا استایل و چیدمان همان صفحه را مستقل کنترل کنید:</p>
+                    </div>
+                    <span style="background: #ede9fe; color: #7c3aed; font-weight: 700; padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;">✓ فعال در هر برگه</span>
+                </div>
+
+                <div class="helma-admin-card" style="padding: 1.75rem;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:1rem; border-bottom:1px solid #e2e8f0; margin-bottom:1.5rem;">
+                        <span style="font-weight:800; font-size:1.05rem; color:#0f172a;">⚙️ تنظیمات اختصاصی این برگه (Helma Page Options)</span>
+                        <span style="font-size:0.8rem; color:#64748b;">برگه نمونه: «لندینگ هوش مصنوعی / معرفی محصول»</span>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem;">
+                        
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">📐 ساختار چیدمان (Layout)</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>تمام‌عرض کامل (Full Width - بدون سایدبار)</option>
+                                <option>پیش‌فرض قالب (همراه با کانتینر)</option>
+                                <option>با سایدبار سمت راست</option>
+                                <option>با سایدبار سمت چپ</option>
+                                <option>عرض متنی فشرده (مخصوص مطالعه)</option>
+                            </select>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">✨ وضعیت هدر در این برگه</div>
+                            <select class="form-input" style="width:100%;">
+                                <option selected>هدر شیشه‌ای استاندارد معلق</option>
+                                <option>هدر کاملاً شفاف (Transparent)</option>
+                                <option>مخفی کردن کامل هدر (بدون هدر)</option>
+                            </select>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🌐 پس‌زمینه شبکه‌ای سایبرنتیک</div>
+                            <select class="form-input" style="width:100%;">
+                                <option selected>نمایش پس‌زمینه شبکه‌ای با نور نئونی</option>
+                                <option>پس‌زمینه ساده تک‌رنگ (بدون شبکه)</option>
+                            </select>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🔮 رنگ درخشش اختصاصی این برگه</div>
+                            <div style="display:flex; align-items:center; gap:0.5rem;">
+                                <input type="color" value="#06b6d4" style="height:38px; width:46px; padding:0; border:1px solid #cbd5e1; border-radius:6px; cursor:pointer;" />
+                                <input type="text" value="#06b6d4" class="form-input" style="flex:1;" />
+                            </div>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🏷️ عنوان برگه و بنر سربرگ</div>
+                            <select class="form-input" style="width:100%;">
+                                <option>عدم نمایش عنوان (مخصوص لندینگ و المنتور)</option>
+                                <option selected>نمایش بنر سربرگ عریض با گرادیان درخشان</option>
+                                <option>نمایش عنوان ساده در بالای متن</option>
+                            </select>
+                        </div>
+
+                        <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:8px; padding:1rem;">
+                            <div style="font-weight:700; font-size:0.9rem; margin-bottom:0.4rem;">🦶 وضعیت فوتر در این برگه</div>
+                            <select class="form-input" style="width:100%;">
+                                <option selected>نمایش فوتر کامل سایت</option>
+                                <option>مخفی کردن کامل فوتر (صفحه فرود و قیف فروش)</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tabBtns = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    const target = this.getAttribute('data-tab');
+                    tabBtns.forEach(b => b.classList.remove('active'));
+                    tabPanes.forEach(p => p.classList.remove('active'));
+                    this.classList.add('active');
+                    const activePane = document.getElementById(target);
+                    if (activePane) activePane.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
