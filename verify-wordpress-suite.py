@@ -19,6 +19,7 @@ THEMES = [
     {"name": "قالب حلما (Helma)", "zip": "helma-theme-v1.0.0.zip", "folder": "helma"},
     {"name": "قالب صدرا (Sadra)", "zip": "sadra-theme-v1.0.0.zip", "folder": "sadra"},
     {"name": "قالب امین (Amin)", "zip": "amin-theme-v1.0.0.zip", "folder": "amin"},
+    {"name": "قالب نیکان (Nikan)", "zip": "nikan-theme-v1.0.0.zip", "folder": "nikan"},
 ]
 
 PLUGINS = [
